@@ -1,0 +1,309 @@
+/* Replace or add these styles to your existing CSS */
+
+/* Global overflow control */
+body {
+    background-color: var(--black-primary);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100vw; /* Prevent horizontal overflow */
+}
+
+/* Container adjustments */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(15px, 5vw, 20px); /* Responsive padding */
+    overflow: hidden; /* Contain child elements */
+}
+
+/* Back Button improvements */
+.back-btn {
+    position: fixed;
+    top: 120px;
+    left: clamp(10px, 3vw, 20px); /* Responsive positioning */
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 50px;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 20px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--yellow-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* Responsive font */
+    max-width: 90vw; /* Prevent overflow */
+}
+
+/* Skills Overview padding fix */
+.skills-overview {
+    background-color: var(--black-light);
+    border-radius: 20px;
+    padding: clamp(20px, 5vw, 50px); /* Responsive padding */
+    margin-bottom: 60px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Overview Grid improvements */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: clamp(15px, 3vw, 30px);
+    margin-top: 40px;
+}
+
+/* Skill Details improvements */
+.skill-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: clamp(15px, 3vw, 30px);
+    width: 100%;
+}
+
+/* Skill Item padding fix */
+.skill-item {
+    background: var(--black-lighter);
+    border-radius: 16px;
+    padding: clamp(20px, 3vw, 30px);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Timeline adjustments */
+.timeline {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    margin: 50px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Timeline item width fix */
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+    width: 100%;
+    padding-left: 0;
+    left: 0 !important;
+}
+
+.timeline::before {
+    left: 20px; /* Adjusted for mobile */
+}
+
+.timeline-content::before {
+    left: -35px !important;
+}
+
+/* Cert Grid improvements */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: clamp(15px, 3vw, 30px);
+    width: 100%;
+}
+
+/* Section padding improvements */
+section {
+    padding: clamp(40px, 8vw, 80px) 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hero section improvements */
+.hero {
+    align-items: center;
+    min-height: 60vh;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80') no-repeat center center/cover;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Category header improvements */
+.category-header {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+    width: 100%;
+}
+
+/* Section title improvements */
+.section-title h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem); /* Responsive font size */
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-weight: 800;
+    position: relative;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.section-title p {
+    color: var(--text-muted);
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    padding: 0 10px;
+}
+
+/* CTA section improvements */
+.skills-cta {
+    text-align: center;
+    margin-top: 100px;
+    padding: clamp(30px, 5vw, 60px);
+    background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80') no-repeat center center/cover;
+    border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 992px) {
+    .overview-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+    }
+    
+    .timeline-content::before {
+        left: -35px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title h1 {
+        font-size: 2.2rem;
+    }
+    
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .skills-overview {
+        padding: 20px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .category-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .skill-details, .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .back-btn {
+        top: 100px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .skills-cta {
+        padding: 30px 15px;
+        margin-top: 60px;
+    }
+    
+    .skills-cta h2 {
+        font-size: 1.8rem;
+    }
+    
+    .category-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Fix for skill bars container */
+    .skill-bar-container {
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .section-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .overview-card, .skill-item, .cert-card {
+        padding: 15px;
+    }
+    
+    .skill-tools {
+        gap: 5px;
+    }
+    
+    .tool-tag {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+    
+    .back-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
+    /* Prevent text overflow */
+    .skill-name h3, .cert-card h3 {
+        font-size: 1.2rem;
+        word-break: break-word;
+    }
+}
+
+/* Add this at the end to handle any overflow */
+* {
+    max-width: 100%;
+}
+
+/* Ensure all images and media are responsive */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}

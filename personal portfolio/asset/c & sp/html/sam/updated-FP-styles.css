@@ -1,0 +1,126 @@
+/* Add this CSS to your existing style section */
+
+.featured-projects-column {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-project-item {
+  background: var(--black-lighter);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.featured-project-item:hover {
+  border-color: var(--yellow-primary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+.featured-project-item .slide-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+.featured-project-item .slide-image {
+  height: 100%;
+  overflow: hidden;
+}
+
+.featured-project-item .slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featured-project-item:hover .slide-image img {
+  transform: scale(1.05);
+}
+
+.featured-project-item .slide-info {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-project-item .slide-info h3 {
+  font-size: 2.2rem;
+  color: var(--yellow-primary);
+  margin-bottom: 20px;
+}
+
+.featured-project-item .slide-info p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.featured-project-item .slide-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.featured-project-item .slide-stat {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.featured-project-item .slide-stat .number {
+  font-size: 2rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block;
+  line-height: 1;
+}
+
+.featured-project-item .slide-stat .label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* Responsive adjustments for column layout */
+@media (max-width: 992px) {
+  .featured-project-item .slide-content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .featured-project-item .slide-image {
+    height: 300px;
+  }
+  
+  .featured-project-item .slide-info {
+    padding: 30px;
+  }
+  
+  .featured-projects-column {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-project-item .slide-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-project-item .slide-info h3 {
+    font-size: 1.8rem;
+  }
+}

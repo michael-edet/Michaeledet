@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Dashboard UI Kit | YellowBlack Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Variables */
+        :root {
+            --yellow-primary: #FFD700;
+            --yellow-light: #FFF9C4;
+            --yellow-dark: #FFA000;
+            --black-primary: #121212;
+            --black-light: #1E1E1E;
+            --black-lighter: #2C2C2C;
+            --text-light: #F5F5F5;
+            --text-muted: #9E9E9E;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--yellow-primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--yellow-primary);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--yellow-primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--yellow-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+        }
+        
+        .btn-large {
+            padding: 16px 40px;
+            font-size: 16px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--black-light);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--yellow-primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--text-light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--yellow-primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--yellow-primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            margin-left: 30px;
+            font-size: 1.5rem;
+            color: var(--yellow-primary);
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--yellow-primary);
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--black-light);
+            margin-top: 80px;
+        }
+        
+        .breadcrumb .container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumb-links li {
+            margin-right: 15px;
+            position: relative;
+        }
+        
+        .breadcrumb-links li:not(:first-child)::before {
+            content: "/";
+            position: absolute;
+            left: -12px;
+            color: var(--text-muted);
+        }
+        
+        .breadcrumb-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb-links a:hover {
+            color: var(--yellow-primary);
+        }
+        
+        .breadcrumb-links .current {
+            color: var(--yellow-primary);
+            font-weight: 600;
+        }
+        
+        /* Product Detail */
+        .product-detail {
+            padding: 50px 0;
+        }
+        
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .product-gallery {
+            position: relative;
+        }
+        
+        .main-image {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .thumbnail {
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .thumbnail.active {
+            border-color: var(--yellow-primary);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-info {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+        }
+        
+        .product-category {
+            color: var(--yellow-primary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .product-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            color: var(--yellow-primary);
+            margin-right: 10px;
+        }
+        
+        .rating-count {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .current-price {
+            font-size: 2.5rem;
+            color: var(--yellow-primary);
+            font-weight: 700;
+            margin-right: 20px;
+        }
+        
+        .original-price {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            font-size: 1.5rem;
+        }
+        
+        .discount-badge {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .product-description {
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .product-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--black-lighter);
+            display: flex;
+            align-items: center;
+        }
+        
+        .product-features li:last-child {
+            border: none;
+        }
+        
+        .product-features li i {
+            color: var(--yellow-primary);
+            margin-right: 10px;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            background: var(--black-lighter);
+            border-radius: 4px;
+            padding: 5px;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .wishlist-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            background: var(--black-lighter);
+            color: var(--text-light);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .wishlist-btn:hover {
+            color: var(--yellow-primary);
+        }
+        
+        .product-meta {
+            padding-top: 20px;
+            border-top: 1px solid var(--black-lighter);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .meta-item i {
+            color: var(--yellow-primary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Tabs Section */
+        .product-tabs {
+            background-color: var(--black-light);
+            padding: 60px 0;
+        }
+        
+        .tabs-header {
+            display: flex;
+            border-bottom: 2px solid var(--black-lighter);
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tab-btn.active {
+            color: var(--yellow-primary);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--yellow-primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .specifications {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specifications tr {
+            border-bottom: 1px solid var(--black-lighter);
+        }
+        
+        .specifications td {
+            padding: 15px 0;
+        }
+        
+        .specifications td:first-child {
+            width: 30%;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .review {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--black-lighter);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--yellow-primary);
+            margin-bottom: 5px;
+        }
+        
+        .review-rating {
+            color: var(--yellow-primary);
+        }
+        
+        .review-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .review-content {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Related Products */
+        .related-products {
+            padding: 60px 0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: var(--black-light);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info-card {
+            padding: 20px;
+        }
+        
+        .product-category-card {
+            color: var(--yellow-primary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .product-title-card {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-price-card {
+            font-size: 1.3rem;
+            color: var(--yellow-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .product-actions-card {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black-lighter);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col {
+            padding-right: 20px;
+        }
+        
+        .footer-col h3 {
+            color: var(--yellow-primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--yellow-primary);
+        }
+        
+        .footer-col p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--black-light);
+            color: var(--yellow-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateY(-5px);
+        }
+        
+        .quick-links {
+            list-style: none;
+        }
+        
+        .quick-links li {
+            margin-bottom: 12px;
+        }
+        
+        .quick-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        .quick-links a:hover {
+            color: var(--yellow-primary);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            color: var(--yellow-primary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid var(--black-light);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--black-light);
+                transition: 0.5s;
+                z-index: 999;
+                padding: 30px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .cart-icon {
+                margin-left: auto;
+            }
+            
+            .tabs-header {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                text-align: left;
+                border-bottom: 1px solid var(--black-lighter);
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .add-to-cart {
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">YELLOW<span>BLACK</span></a>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="store.html">Store</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="#">UI Kits</a></li>
+                <li class="current">Premium Dashboard UI Kit</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-gallery animate">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Premium Dashboard UI Kit" id="mainImage">
+                    </div>
+                    <div class="thumbnails">
+                        <div class="thumbnail active" data-image="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Thumbnail 1">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Thumbnail 2">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Thumbnail 3">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Thumbnail 4">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-info animate delay-1">
+                    <span class="product-category">UI Kit</span>
+                    <h1 class="product-title">Premium Dashboard UI Kit</h1>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="rating-count">(42 Reviews)</div>
+                    </div>
+                    
+                    <div class="product-price">
+                        <div class="current-price">$49.99</div>
+                        <div class="original-price">$79.99</div>
+                        <div class="discount-badge">38% OFF</div>
+                    </div>
+                    
+                    <p class="product-description">
+                        Transform your data visualization with our Premium Dashboard UI Kit. Designed for modern web applications, this comprehensive kit includes everything you need to create stunning, user-friendly dashboards. With over 100 customizable components, you'll save countless hours of design and development time.
+                    </p>
+                    
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> 100+ Customizable Components</li>
+                        <li><i class="fas fa-check"></i> Light & Dark Mode Included</li>
+                        <li><i class="fas fa-check"></i> Fully Responsive Layouts</li>
+                        <li><i class="fas fa-check"></i> Figma, Sketch & Adobe XD Files</li>
+                        <li><i class="fas fa-check"></i> Detailed Documentation</li>
+                        <li><i class="fas fa-check"></i> Free Lifetime Updates</li>
+                    </ul>
+                    
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="text" class="quantity-input" value="1">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-box"></i>
+                            <span>Instant Digital Download</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-sync"></i>
+                            <span>30-Day Money Back Guarantee</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Priority Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Tabs -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="specifications">Specifications</button>
+                <button class="tab-btn" data-tab="reviews">Reviews (42)</button>
+            </div>
+            
+            <div class="tab-content active" id="description">
+                <h3>Complete Dashboard Solution</h3>
+                <p>Our Premium Dashboard UI Kit is designed for developers, designers, and product managers who need to create professional dashboard interfaces quickly. The kit includes a wide variety of components, charts, and widgets that can be easily customized to match your brand identity.</p>
+                
+                <h3>Key Features</h3>
+                <ul class="product-features">
+                    <li><i class="fas fa-check"></i> <strong>100+ Components:</strong> Buttons, cards, charts, tables, navigation elements, and more</li>
+                    <li><i class="fas fa-check"></i> <strong>Light & Dark Themes:</strong> Pre-designed themes for both light and dark mode applications</li>
+                    <li><i class="fas fa-check"></i> <strong>Fully Responsive:</strong> Perfectly adapts to desktop, tablet, and mobile devices</li>
+                    <li><i class="fas fa-check"></i> <strong>Vector Graphics:</strong> All elements are vector-based for infinite scalability</li>
+                    <li><i class="fas fa-check"></i> <strong>Modular Structure:</strong> Easy to customize and extend with your own styles</li>
+                    <li><i class="fas fa-check"></i> <strong>Well Organized:</strong> Layers and components are neatly organized and named</li>
+                </ul>
+                
+                <h3>What's Included</h3>
+                <ul class="product-features">
+                    <li><i class="fas fa-file"></i> Figma Source Files</li>
+                    <li><i class="fas fa-file"></i> Sketch Source Files</li>
+                    <li><i class="fas fa-file"></i> Adobe XD Source Files</li>
+                    <li><i class="fas fa-file-pdf"></i> PDF Documentation</li>
+                    <li><i class="fas fa-file-alt"></i> Style Guide</li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="specifications">
+                <table class="specifications">
+                    <tr>
+                        <td>File Formats</td>
+                        <td>Figma, Sketch, Adobe XD</td>
+                    </tr>
+                    <tr>
+                        <td>Last Updated</td>
+                        <td>June 15, 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Version</td>
+                        <td>2.0</td>
+                    </tr>
+                    <tr>
+                        <td>Resolution</td>
+                        <td>1920x1080 (Fully Scalable)</td>
+                    </tr>
+                    <tr>
+                        <td>Widgets Included</td>
+                        <td>Charts, Tables, Cards, Lists, Metrics</td>
+                    </tr>
+                    <tr>
+                        <td>Fonts Used</td>
+                        <td>Inter (Free Google Font)</td>
+                    </tr>
+                    <tr>
+                        <td>License</td>
+                        <td>Commercial Use (One Project)</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="tab-content" id="reviews">
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-date">June 20, 2023</div>
+                    </div>
+                    <div class="review-content">
+                        <p>This UI kit has completely transformed my workflow. The components are well-organized and easy to customize. The dark mode implementation is particularly impressive. Saved me countless hours on our latest admin dashboard project. Highly recommended!</p>
+                    </div>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Michael Chen">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-date">June 12, 2023</div>
+                    </div>
+                    <div class="review-content">
+                        <p>Great value for the price. The documentation is thorough and helped me get started quickly. The variety of chart components is excellent. The only suggestion I have is to include more data table variations in the next update. Overall, very satisfied with this purchase.</p>
+                    </div>
+                </div>
+                
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Alex Rodriguez">
+                            </div>
+                            <div class="author-info">
+                                <h4>Alex Rodriguez</h4>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-date">June 5, 2023</div>
+                    </div>
+                    <div class="review-content">
+                        <p>As a freelance designer, this kit has been a game-changer. I've used it for three client projects already, and each time it's saved me at least 10 hours of work. The attention to detail in the components is impressive. Customer support also helped me quickly when I had a question about customization. Will definitely purchase more products from YellowBlack!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Related Products</h2>
+                <p>You might also like these premium products</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card animate">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Portfolio Template">
+                    </div>
+                    <div class="product-info-card">
+                        <span class="product-category-card">Template</span>
+                        <h3 class="product-title-card">Portfolio Website Template</h3>
+                        <div class="product-price-card">$39.99</div>
+                        <div class="product-actions-card">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="btn btn-outline">Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card animate delay-1">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Icon Set">
+                    </div>
+                    <div class="product-info-card">
+                        <span class="product-category-card">Icon Set</span>
+                        <h3 class="product-title-card">Minimal Line Icons Pack</h3>
+                        <div class="product-price-card">$24.99</div>
+                        <div class="product-actions-card">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="btn btn-outline">Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card animate delay-2">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Font">
+                    </div>
+                    <div class="product-info-card">
+                        <span class="product-category-card">Font</span>
+                        <h3 class="product-title-card">Geometric Sans Typeface</h3>
+                        <div class="product-price-card">$29.99</div>
+                        <div class="product-actions-card">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="btn btn-outline">Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card animate delay-3">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mockup">
+                    </div>
+                    <div class="product-info-card">
+                        <span class="product-category-card">Mockup</span>
+                        <h3 class="product-title-card">Device Mockup Collection</h3>
+                        <div class="product-price-card">$34.99</div>
+                        <div class="product-actions-card">
+                            <button class="btn btn-primary">Add to Cart</button>
+                            <button class="btn btn-outline">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>YellowBlack</h3>
+                    <p>Creating stunning digital experiences with a focus on user-centered design and cutting-edge development techniques.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul class="quick-links">
+                        <li><a href="#">UI Kits</a></li>
+                        <li><a href="#">Website Templates</a></li>
+                        <li><a href="#">Icon Sets</a></li>
+                        <li><a href="#">Fonts</a></li>
+                        <li><a href="#">Mockups</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="quick-links">
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">App Development</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Branding</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Design Street, Creative City, CA 90210</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@yellowblack.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 YellowBlack Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Product Gallery
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.getElementById('mainImage');
+        
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                // Remove active class from all thumbnails
+                thumbnails.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked thumbnail
+                thumbnail.classList.add('active');
+                // Change main image
+                const newImage = thumbnail.getAttribute('data-image');
+                mainImage.src = newImage;
+            });
+        });
+        
+        // Quantity Selector
+        const minusBtn = document.querySelector('.minus');
+        const plusBtn = document.querySelector('.plus');
+        const quantityInput = document.querySelector('.quantity-input');
+        
+        minusBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+        
+        plusBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        });
+        
+        // Add to Cart
+        const addToCartBtn = document.querySelector('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 3;
+        
+        addToCartBtn.addEventListener('click', () => {
+            const quantity = parseInt(quantityInput.value);
+            count += quantity;
+            cartCount.textContent = count;
+            
+            // Animation effect
+            addToCartBtn.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            setTimeout(() => {
+                addToCartBtn.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+            }, 2000);
+        });
+        
+        // Wishlist
+        const wishlistBtn = document.querySelector('.wishlist-btn');
+        wishlistBtn.addEventListener('click', () => {
+            wishlistBtn.innerHTML = wishlistBtn.innerHTML.includes('fas') ? 
+                '<i class="far fa-heart"></i>' : '<i class="fas fa-heart"></i>';
+        });
+        
+        // Tabs Functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initial check on page load
+        window.addEventListener('load', animateOnScroll);
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

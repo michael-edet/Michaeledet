@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Expertise | Michael Edet</title>
+    <link rel="stylesheet" href="/personal portfolio/asset/c & sp/css/improve-skill-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="/personal portfolio/asset/c & sp/header/header.css">
+    <style>
+        /* Base Variables - Matching Main Page */
+        :root {
+            --yellow-primary: #FFD700;
+            --yellow-light: #FFF9C4;
+            --yellow-dark: #FFA000;
+            --black-primary: #0a0a0a;
+            --black-light: #121212;
+            --black-lighter: #1e1e1e;
+            --text-light: #F5F5F5;
+            --text-muted: #9E9E9E;
+            --gradient-primary: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+            --gradient-secondary: linear-gradient(90deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title h1 {
+            font-size: 3.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .section-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--yellow-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateX(-5px);
+        }
+        
+        /* hero */
+        .hero {
+           align-items: center;
+            min-height: 60vh;
+            position: relative;
+        
+            background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80') no-repeat center center/cover;
+            display: flex;
+        }
+        
+        .hero p {
+            color: var(--lighter-black);
+        }
+        
+        /* Skills Overview */
+        .skills-overview {
+            background-color: var(--black-light);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .overview-card {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--yellow-primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .overview-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .overview-icon i {
+            font-size: 2.5rem;
+            color: var(--yellow-primary);
+        }
+        
+        .overview-card h3 {
+            font-size: 1.5rem;
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+        }
+        
+        .overview-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Skill Categories */
+        .skill-category {
+            margin-bottom: 80px;
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+        }
+        
+        .category-icon i {
+            font-size: 2.2rem;
+            color: var(--black-primary);
+        }
+        
+        .category-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .category-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        /* Skill Details */
+        .skill-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-item {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--yellow-primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .skill-name h3 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        
+        .skill-level {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--yellow-primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .skill-bar-container {
+            margin-bottom: 20px;
+        }
+        
+        .skill-bar-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .skill-bar-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .skill-bar-percentage {
+            color: var(--yellow-primary);
+            font-weight: 600;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-secondary);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .skill-description {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .skill-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tool-tag {
+            padding: 5px 12px;
+            background: rgba(255, 215, 0, 0.05);
+            color: var(--yellow-primary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        /* Experience Timeline */
+        .experience-timeline {
+            margin-top: 100px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 215, 0, 0.3);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-content {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -55px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -55px;
+        }
+        
+        .timeline-year {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content h3 {
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .timeline-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Certifications */
+        .certifications {
+            margin-top: 100px;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .cert-card {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--yellow-primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .cert-icon i {
+            font-size: 1.8rem;
+            color: var(--yellow-primary);
+        }
+        
+        .cert-card h3 {
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .cert-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .cert-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+        
+        /* CTA Section */
+        .skills-cta {
+            text-align: center;
+            margin-top: 100px;
+            padding: 60px;
+            background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80') no-repeat center center/cover;
+            border-radius: 20px;
+        }
+        
+        .skills-cta h2 {
+            font-size: 2.8rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .skills-cta p {
+            font-size: 1.2rem;
+            color: var(--lighter-black);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .overview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                left: 0 !important;
+            }
+            
+            .timeline-content::before {
+                left: -45px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-overview {
+                padding: 30px;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .skill-details, .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-btn {
+                top: 90px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .skills-cta {
+                padding: 40px 20px;
+            }
+            
+            .skills-cta h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    
+<!-- header.html -->
+<header id="header">
+    <div class="container header-container">
+        <a href="/personal portfolio/index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="logo-text">
+                <span class="main">MICHAEL EDET</span>
+                <span class="sub">Digital Portfolio</span>
+            </div>
+        </a>
+        
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <nav id="navMenu">
+            <ul>
+                <li><a href="/personal portfolio/index.html">Home</a></li>
+                <li><a href="/personal portfolio/asset/c & sp/html/about.html">About</a></li>
+                <li><a href="/personal portfolio/asset/c & sp/html/skill.html">Skills</a></li>
+                <li><a href="/personal portfolio/asset/c & sp/html/service.html">Services</a></li>
+                <li><a href="/personal portfolio/asset/c & sp/html/portfolio.html">Portfolio</a></li>
+                <li><a href="/personal portfolio/asset/c & sp/html/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn" data-aos="fade-right" data-aos-delay="300">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    
+    <!-- Hero Section -->
+    <section class="skills-hero">
+  
+            <div class="hero">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Skills & Expertise</h1>
+                <p>Comprehensive analysis of my technical abilities, creative skills, and professional experience developed over 5+ years in digital creation</p>
+            </div>
+            </div>
+            
+            <!-- Skills Overview -->
+            <div class="container">
+            <div class="skills-overview" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h2 style="color: var(--yellow-primary); font-size: 2rem; margin-bottom: 20px; text-align: center;">Skill Categories Overview</h2>
+                <p style="color: var(--text-muted); text-align: center; max-width: 800px; margin: 0 auto 30px;">My expertise spans multiple disciplines, allowing me to provide end-to-end digital solutions that combine creative design with technical implementation.</p>
+                
+                <div class="overview-grid">
+                    <div class="overview-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="overview-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Creative Design</h3>
+                        <p>5+ years experience in graphic design, video editing, and digital art creation with a focus on visual storytelling and brand identity.</p>
+                    </div>
+                    
+                    <div class="overview-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="overview-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>4 years of full-stack development experience building responsive, secure, and scalable web applications and platforms.</p>
+                    </div>
+                    
+                    <div class="overview-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="overview-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Cybersecurity</h3>
+                        <p>Expertise in implementing security protocols, vulnerability assessment, and secure coding practices for web applications.</p>
+                    </div>
+                    
+                    <div class="overview-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="overview-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Platform Development</h3>
+                        <p>Experience building and managing multiple digital platforms serving diverse communities and solving unique challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Creative Design Skills -->
+    <section class="skill-category" id="design">
+        <div class="container">
+            <div class="category-header" data-aos="fade-right" data-aos-duration="1000">
+                <div class="category-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="category-title">
+                    <h2>Creative Design</h2>
+                    <p>5+ years of visual design experience with expertise in graphic design, video production, and digital art</p>
+                </div>
+            </div>
+            
+            <div class="skill-details">
+                <!-- Graphic Design -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Graphic Design</h3>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                        <div class="skill-years">5+ years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Specialized in creating compelling visual identities, marketing materials, and digital assets. Expertise in brand development, logo design, and print materials with a focus on visual communication and user engagement.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Adobe Photoshop</span>
+                        <span class="tool-tag">Adobe Illustrator</span>
+                        <span class="tool-tag">Figma</span>
+                        <span class="tool-tag">Canva</span>
+                        <span class="tool-tag">CorelDRAW</span>
+                    </div>
+                </div>
+                
+                <!-- Video Editing & Production -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Video Editing & Production</h3>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                        <div class="skill-years">5+ years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Comprehensive video production skills including scripting, filming, editing, color grading, and post-production. Experience with corporate videos, promotional content, and creative storytelling through visual media.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Adobe Premiere Pro</span>
+                        <span class="tool-tag">After Effects</span>
+                        <span class="tool-tag">Final Cut Pro</span>
+                        <span class="tool-tag">DaVinci Resolve</span>
+                        <span class="tool-tag">Motion Graphics</span>
+                    </div>
+                </div>
+                
+                <!-- Digital Art & Illustration -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Digital Art & Illustration</h3>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-years">5+ years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Creating original digital artwork, character design, and illustrations for various applications including web, print, and multimedia projects. Strong understanding of composition, color theory, and visual storytelling.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Procreate</span>
+                        <span class="tool-tag">Adobe Fresco</span>
+                        <span class="tool-tag">Clip Studio Paint</span>
+                        <span class="tool-tag">Krita</span>
+                        <span class="tool-tag">Digital Painting</span>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Design -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>UI/UX Design</h3>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-years">3 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Designing intuitive user interfaces and experiences with a focus on usability, accessibility, and user-centered design principles. Experience creating wireframes, prototypes, and conducting user testing.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Figma</span>
+                        <span class="tool-tag">Adobe XD</span>
+                        <span class="tool-tag">Sketch</span>
+                        <span class="tool-tag">Prototyping</span>
+                        <span class="tool-tag">User Research</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Development Skills -->
+    <section class="skill-category" id="development" style="background-color: rgba(18, 18, 18, 0.5); padding: 60px 0;">
+        <div class="container">
+            <div class="category-header" data-aos="fade-left" data-aos-duration="1000">
+                <div class="category-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="category-title">
+                    <h2>Web Development</h2>
+                    <p>4 years of full-stack development experience with expertise in modern web technologies and frameworks</p>
+                </div>
+            </div>
+            
+            <div class="skill-details">
+                <!-- Frontend Development -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Frontend Development</h3>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-years">4 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Building responsive, interactive user interfaces using modern HTML, CSS, and JavaScript. Expertise in creating accessible, performant web applications with cross-browser compatibility and mobile-first design approach.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">HTML5</span>
+                        <span class="tool-tag">CSS3/SASS</span>
+                        <span class="tool-tag">JavaScript ES6+</span>
+                        <span class="tool-tag">React.js</span>
+                        <span class="tool-tag">Vue.js</span>
+                        <span class="tool-tag">Bootstrap</span>
+                    </div>
+                </div>
+                
+                <!-- Backend Development -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Backend Development</h3>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-years">3 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Developing server-side applications, RESTful APIs, and database architectures. Experience with server management, authentication systems, and integrating third-party services into web applications.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Node.js</span>
+                        <span class="tool-tag">Express.js</span>
+                        <span class="tool-tag">PHP</span>
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">REST APIs</span>
+                        <span class="tool-tag">MySQL</span>
+                    </div>
+                </div>
+                
+                <!-- Responsive Web Design -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Responsive Web Design</h3>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                        <div class="skill-years">4 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">94%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 94%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Creating websites and applications that provide optimal viewing experience across a wide range of devices. Expertise in mobile-first design, fluid grids, flexible images, and CSS media queries.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">CSS Grid</span>
+                        <span class="tool-tag">Flexbox</span>
+                        <span class="tool-tag">Media Queries</span>
+                        <span class="tool-tag">Mobile-First</span>
+                        <span class="tool-tag">Cross-Browser Testing</span>
+                    </div>
+                </div>
+                
+                <!-- E-commerce Development -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>E-commerce Solutions</h3>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-years">3 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">78%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Building secure online stores with shopping cart functionality, payment processing, inventory management, and order tracking systems. Experience with popular e-commerce platforms and custom solutions.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">WooCommerce</span>
+                        <span class="tool-tag">Shopify</span>
+                        <span class="tool-tag">Payment Gateways</span>
+                        <span class="tool-tag">Shopping Cart</span>
+                        <span class="tool-tag">Inventory Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cybersecurity Skills -->
+    <section class="skill-category" id="cybersecurity">
+        <div class="container">
+            <div class="category-header" data-aos="fade-right" data-aos-duration="1000">
+                <div class="category-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="category-title">
+                    <h2>Cybersecurity</h2>
+                    <p>Security-focused development practices and vulnerability assessment for web applications</p>
+                </div>
+            </div>
+            
+            <div class="skill-details">
+                <!-- Secure Coding Practices -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Secure Coding Practices</h3>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-years">3 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Implementing security best practices throughout the development lifecycle to prevent common vulnerabilities. Focus on input validation, authentication, authorization, and data protection in web applications.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">OWASP Top 10</span>
+                        <span class="tool-tag">Input Validation</span>
+                        <span class="tool-tag">SQL Injection Prevention</span>
+                        <span class="tool-tag">XSS Protection</span>
+                        <span class="tool-tag">CSRF Protection</span>
+                    </div>
+                </div>
+                
+                <!-- Vulnerability Assessment -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Vulnerability Assessment</h3>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-years">2 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">72%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 72%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Identifying, quantifying, and prioritizing vulnerabilities in web applications. Experience with security scanning tools, penetration testing methodologies, and security audit procedures.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Security Scanning</span>
+                        <span class="tool-tag">Penetration Testing</span>
+                        <span class="tool-tag">Burp Suite</span>
+                        <span class="tool-tag">Nmap</span>
+                        <span class="tool-tag">Security Audits</span>
+                    </div>
+                </div>
+                
+                <!-- Data Protection -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Data Protection</h3>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                        <div class="skill-years">3 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Implementing data encryption, secure storage, and transmission protocols to protect sensitive information. Experience with GDPR compliance, data anonymization, and secure data handling practices.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Encryption</span>
+                        <span class="tool-tag">HTTPS/SSL</span>
+                        <span class="tool-tag">Data Anonymization</span>
+                        <span class="tool-tag">Secure Storage</span>
+                        <span class="tool-tag">GDPR Compliance</span>
+                    </div>
+                </div>
+                
+                <!-- Security Audits -->
+                <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="skill-header">
+                        <div class="skill-name">
+                            <h3>Security Audits</h3>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-years">2 years</div>
+                    </div>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-info">
+                            <span class="skill-bar-label">Proficiency</span>
+                            <span class="skill-bar-percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-description">
+                        Conducting comprehensive security reviews of web applications to identify weaknesses and recommend improvements. Experience with code review for security vulnerabilities and compliance checking.
+                    </div>
+                    
+                    <div class="skill-tools">
+                        <span class="tool-tag">Code Review</span>
+                        <span class="tool-tag">Compliance Checking</span>
+                        <span class="tool-tag">Risk Assessment</span>
+                        <span class="tool-tag">Security Reporting</span>
+                        <span class="tool-tag">Remediation Planning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Timeline -->
+    <section class="experience-timeline">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Skill Development Timeline</h1>
+                <p>My journey of skill acquisition and professional growth over the years</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018 - 2019</div>
+                        <h3>Graphic Design Foundation</h3>
+                        <p>Started professional graphic design journey with Adobe Creative Suite. Developed skills in logo design, branding, and marketing materials for small businesses and personal projects.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019 - 2020</div>
+                        <h3>Video Production Expansion</h3>
+                        <p>Expanded into video editing and production, working on corporate videos and promotional content. Developed storytelling skills through visual media and motion graphics.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020 - 2021</div>
+                        <h3>Web Development Beginnings</h3>
+                        <p>Started learning web development with HTML, CSS, and JavaScript. Built first responsive websites and began exploring frontend frameworks like React.js.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021 - 2022</div>
+                        <h3>Full-Stack Development</h3>
+                        <p>Expanded into backend development with Node.js and databases. Started building full-stack applications and understanding server-side architecture and API development.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022 - 2023</div>
+                        <h3>Cybersecurity Integration</h3>
+                        <p>Began integrating security practices into development workflow. Studied OWASP guidelines, secure coding practices, and started implementing security measures in web applications.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023 - Present</div>
+                        <h3>Platform Development & Scalability</h3>
+                        <p>Focus on building scalable digital platforms and applying all accumulated skills to create comprehensive solutions. Current studies in Mathematics & Computer Science at NOUN.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certifications -->
+    <section class="certifications">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Certifications & Education</h1>
+                <p>Formal education and professional certifications that complement my practical experience</p>
+            </div>
+            
+            <div class="cert-grid">
+                <div class="cert-card" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="cert-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>BSc. Mathematics & Computer Science</h3>
+                    <p>National Open University of Nigeria, Uyo Study Center (In Progress)</p>
+                    <div class="cert-meta">
+                        <span>Expected: 2025</span>
+                        <span>Current GPA: 4.2/5.0</span>
+                    </div>
+                </div>
+                
+                <div class="cert-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Web Development Certification</h3>
+                    <p>Completed comprehensive web development program covering frontend and backend technologies, responsive design, and deployment.</p>
+                    <div class="cert-meta">
+                        <span>Issued: 2022</span>
+                        <span>Provider: Online Platform</span>
+                    </div>
+                </div>
+                
+                <div class="cert-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <p>Completed coursework covering web application security, secure coding practices, and vulnerability assessment methodologies.</p>
+                    <div class="cert-meta">
+                        <span>Issued: 2023</span>
+                        <span>Focus: Web Security</span>
+                    </div>
+                </div>
+                
+                <div class="cert-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="cert-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Adobe Creative Suite Certification</h3>
+                    <p>Professional certification in Adobe Photoshop, Illustrator, and Premiere Pro for graphic design and video editing.</p>
+                    <div class="cert-meta">
+                        <span>Issued: 2020</span>
+                        <span>Software: Adobe CC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="skills-cta">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Let's Work Together</h2>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">With this diverse skill set spanning creative design, technical development, and security implementation, I can provide comprehensive solutions for your digital projects.</p>
+            
+            <div class="cta-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <a href="index.html#contact" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Start a Project
+                </a>
+                <a href="index.html#portfolio" class="btn" style="background: transparent; color: var(--yellow-primary); border: 2px solid var(--yellow-primary);">
+                    <i class="fas fa-eye"></i> View My Work
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src=""></script>
+    <script src="/personal portfolio/asset/c & sp/header/header.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100
+        });
+        
+        // Animate skill bars when they come into view
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const barPosition = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (barPosition < screenPosition) {
+                    // Width is already set inline, just trigger animation
+                    bar.style.transition = 'width 1.5s ease-in-out';
+                }
+            });
+        };
+        
+        // Check on page load
+        window.addEventListener('load', animateSkillBars);
+        // Check on scroll
+        window.addEventListener('scroll', animateSkillBars);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

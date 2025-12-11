@@ -1,0 +1,186 @@
+/* Featured Projects Grid Layout */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.featured-project-item {
+    background: var(--black-lighter);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.featured-project-item:hover {
+    border-color: var(--yellow-primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+}
+
+.featured-project-item .slide-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+}
+
+.featured-project-item .slide-image {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.featured-project-item .slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.featured-project-item:hover .slide-image img {
+    transform: scale(1.05);
+}
+
+.featured-project-item .portfolio-category {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--yellow-primary);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.featured-project-item .slide-info {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-project-item .slide-info h3 {
+    font-size: 2rem;
+    color: var(--yellow-primary);
+    margin-bottom: 15px;
+}
+
+.featured-project-item .slide-info p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.featured-project-item .slide-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.featured-project-item .slide-stat {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.featured-project-item:hover .slide-stat {
+    border-color: var(--yellow-primary);
+}
+
+.featured-project-item .slide-stat .number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: block;
+    line-height: 1;
+}
+
+.featured-project-item .slide-stat .label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.featured-project-item .modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.featured-project-item .modal-actions .btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .featured-grid {
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 30px;
+    }
+    
+    .featured-project-item .slide-content {
+        min-height: 350px;
+    }
+    
+    .featured-project-item .slide-info {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .featured-project-item .slide-content {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .featured-project-item .slide-image {
+        height: 250px;
+    }
+    
+    .featured-project-item .slide-info {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-project-item .slide-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-project-item .slide-info h3 {
+        font-size: 1.6rem;
+    }
+    
+    .featured-project-item .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .featured-project-item .modal-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

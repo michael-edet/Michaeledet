@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Founder & Creator at Colony Core</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Base Variables - Matching Landing Page */
+        :root {
+            --yellow-primary: #FFD700;
+            --yellow-light: #FFF9C4;
+            --yellow-dark: #FFA000;
+            --black-primary: #0a0a0a;
+            --black-light: #121212;
+            --black-lighter: #1e1e1e;
+            --text-light: #F5F5F5;
+            --text-muted: #9E9E9E;
+            --gradient-primary: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--yellow-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateX(-5px);
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+        
+        .hero-text h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--yellow-light);
+            margin-bottom: 25px;
+            display: block;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--yellow-primary);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--yellow-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateY(-3px);
+        }
+        
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 18px;
+        }
+        
+        /* Colony Core Section */
+        .colony-core {
+            background-color: var(--black-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .colony-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .colony-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .colony-logo {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .colony-logo-icon {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        
+        .colony-logo-icon i {
+            font-size: 3.5rem;
+            color: var(--black-primary);
+        }
+        
+        .colony-logo h3 {
+            font-size: 2.8rem;
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+        }
+        
+        .colony-logo p {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .colony-description h3 {
+            font-size: 2.2rem;
+            color: var(--yellow-primary);
+            margin-bottom: 25px;
+        }
+        
+        .colony-description p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Portfolio Platforms Section */
+        .portfolio-platforms {
+            position: relative;
+        }
+        
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .platform-card {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--yellow-primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .platform-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .platform-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .platform-icon i {
+            font-size: 2.2rem;
+            color: var(--yellow-primary);
+        }
+        
+        .platform-header h3 {
+            font-size: 1.8rem;
+            color: var(--yellow-primary);
+            margin-bottom: 15px;
+        }
+        
+        .platform-header p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .platform-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .platform-features li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .platform-features li:last-child {
+            border: none;
+        }
+        
+        .platform-features li i {
+            color: var(--yellow-primary);
+            margin-right: 10px;
+        }
+        
+        .platform-link {
+            color: var(--yellow-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .platform-link:hover {
+            gap: 12px;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--black-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skills-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .skills-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .skill-tab {
+            background: transparent;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            color: var(--text-light);
+            padding: 12px 28px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-tab:hover, .skill-tab.active {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            border-color: var(--yellow-primary);
+        }
+        
+        .skills-content {
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .skills-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-item {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--yellow-primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .skill-item h4 {
+            color: var(--yellow-primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .skill-item h4 i {
+            font-size: 1.5rem;
+        }
+        
+        .skill-item p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        /* Journey Timeline */
+        .journey {
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 215, 0, 0.3);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-content {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -55px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -55px;
+        }
+        
+        .timeline-year {
+            display: inline-block;
+            padding: 6px 20px;
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content h3 {
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .timeline-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Education Section */
+        .education {
+            background-color: var(--black-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .education-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .education-card {
+            background: var(--black-lighter);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .education-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .education-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+        
+        .education-icon i {
+            font-size: 2.8rem;
+            color: var(--yellow-primary);
+        }
+        
+        .education-info h3 {
+            font-size: 2.2rem;
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+        }
+        
+        .education-info p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+        
+        .education-details {
+            margin-top: 30px;
+        }
+        
+        .education-details h4 {
+            color: var(--yellow-light);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .education-details ul {
+            list-style: none;
+        }
+        
+        .education-details li {
+            padding: 12px 0;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .education-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .education-details li::before {
+            content: '▸';
+            color: var(--yellow-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .cta h2 {
+            font-size: 3.5rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black-primary);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            color: var(--yellow-primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .footer-col p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--black-lighter);
+            color: var(--yellow-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow-primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--yellow-primary);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            color: var(--yellow-primary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content, .colony-intro {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                left: 0 !important;
+            }
+            
+            .timeline-content::before {
+                left: -45px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 90px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .platforms-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .education-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .education-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .education-card {
+                padding: 30px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn" data-aos="fade-right" data-aos-delay="300">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h1>Michael <span>Edet</span></h1>
+                    <span class="subtitle">Founder of Colony Core | Multidisciplinary Creator</span>
+                    <p>I bridge the worlds of creativity and technology, leveraging 5+ years in graphic design and digital art, 4 years in programming (cybersecurity & web development), and 1+ years in AI content creation. As a BSc. Mathematics & Computer Science student at NOUN, Uyo, I combine analytical thinking with creative vision.</p>
+                    <p>Through Colony Core, I've built a portfolio of platforms that serve diverse communities - from freelancers and news readers to music creators.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Design</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Years Programming</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Platforms Built</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Michael Edet - Founder">
+                    <div class="image-badge floating">Founder & CEO</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Colony Core Section -->
+    <section class="colony-core" id="colony-core">
+        <div class="colony-bg"></div>
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Colony Core</h2>
+                <p>A software engineering company for software and digital solutions</p>
+            </div>
+            
+            <div class="colony-intro">
+                <div class="colony-logo" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="colony-logo-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>COLONY CORE</h3>
+                    <p>Building Digital Ecosystems</p>
+                </div>
+                
+                <div class="colony-description" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <h3>Our Mission & Vision</h3>
+                    <p>Colony Core was founded with a simple yet powerful vision: to create interconnected digital platforms that serve specific communities and solve real-world problems. We believe in the power of technology to connect, educate, and empower people.</p>
+                    <p>As a one-person startup that has grown into a portfolio of platforms, I handle everything from conceptualization and design to development and deployment, ensuring each platform maintains the high standards of quality and user experience that define Colony Core.</p>
+                    <p>Each platform under Colony Core serves a unique purpose, but all share the common goal of creating value for their respective communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Platforms -->
+    <section class="portfolio-platforms" id="platforms">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>My Portfolio Platforms</h2>
+                <p>Digital ecosystems built and managed under Colony Core</p>
+            </div>
+            
+            <div class="platforms-grid">
+                <!-- Freelancers Colony -->
+                <div class="platform-card" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="platform-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="platform-header">
+                        <h3>Freelancers Colony</h3>
+                        <p>Connecting freelancers with opportunities and education</p>
+                    </div>
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check"></i> Freelancer education resources</li>
+                        <li><i class="fas fa-check"></i> Client-freelancer matching system</li>
+                        <li><i class="fas fa-check"></i> Portfolio showcase for members</li>
+                        <li><i class="fas fa-check"></i> Community forums and networking</li>
+                        <li><i class="fas fa-check"></i> Skill development workshops</li>
+                    </ul>
+                    <a href="#" class="platform-link">Visit Platform <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Planet Colony -->
+                <div class="platform-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="platform-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="platform-header">
+                        <h3>Planet Colony</h3>
+                        <p>News, sports, entertainment & community-driven content</p>
+                    </div>
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check"></i> Multi-category news aggregation</li>
+                        <li><i class="fas fa-check"></i> Community content submission</li>
+                        <li><i class="fas fa-check"></i> Sports scores and analysis</li>
+                        <li><i class="fas fa-check"></i> Technology news and reviews</li>
+                        <li><i class="fas fa-check"></i> Entertainment and lifestyle content</li>
+                    </ul>
+                    <a href="#" class="platform-link">Visit Platform <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Michael Edet Portal -->
+                <div class="platform-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="platform-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="platform-header">
+                        <h3>Michael Edet Portal</h3>
+                        <p>Personal portal for clients and freelancers</p>
+                    </div>
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check"></i> Client project management</li>
+                        <li><i class="fas fa-check"></i> Freelancer collaboration tools</li>
+                        <li><i class="fas fa-check"></i> Portfolio and case studies</li>
+                        <li><i class="fas fa-check"></i> Service booking system</li>
+                        <li><i class="fas fa-check"></i> Direct communication channels</li>
+                    </ul>
+                    <a href="#" class="platform-link">Visit Platform <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Viral Son -->
+                <div class="platform-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="platform-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="platform-header">
+                        <h3>Viral Son</h3>
+                        <p>Portal for trending news across all life aspects</p>
+                    </div>
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check"></i> Real-time trending topics</li>
+                        <li><i class="fas fa-check"></i> Viral content aggregation</li>
+                        <li><i class="fas fa-check"></i> Social media integration</li>
+                        <li><i class="fas fa-check"></i> Category-based trending</li>
+                        <li><i class="fas fa-check"></i> User voting system</li>
+                    </ul>
+                    <a href="#" class="platform-link">Visit Platform <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Planet Play -->
+                <div class="platform-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="platform-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="platform-header">
+                        <h3>Planet Play</h3>
+                        <p>Portal for music lovers and creators</p>
+                    </div>
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check"></i> Music submission system</li>
+                        <li><i class="fas fa-check"></i> Playlist consideration portal</li>
+                        <li><i class="fas fa-check"></i> Artist discovery platform</li>
+                        <li><i class="fas fa-check"></i> Music reviews and ratings</li>
+                        <li><i class="fas fa-check"></i> Curated playlists</li>
+                    </ul>
+                    <a href="#" class="platform-link">Visit Platform <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="skills-bg"></div>
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>My Skills & Expertise</h2>
+                <p>Multidisciplinary skills developed over 5+ years</p>
+            </div>
+            
+            <div class="skills-tabs" data-aos="fade-up" data-aos-duration="1000">
+                <button class="skill-tab active" data-tab="creative">
+                    <i class="fas fa-paint-brush"></i> Creative Design
+                </button>
+                <button class="skill-tab" data-tab="development">
+                    <i class="fas fa-code"></i> Development
+                </button>
+                <button class="skill-tab" data-tab="business">
+                    <i class="fas fa-chart-line"></i> Business & Strategy
+                </button>
+            </div>
+            
+            <div class="skills-content active" id="creative">
+                <div class="skills-grid">
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000">
+                        <h4><i class="fas fa-paint-brush"></i> Graphic Design (5+ Years)</h4>
+                        <p>Specialized in branding, marketing materials, UI/UX design, and visual identity development for diverse clients across multiple industries.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <h4><i class="fas fa-video"></i> Video Editing (5+ Years)</h4>
+                        <p>Expertise in narrative storytelling through video, including commercials, explainer videos, social media content, and corporate presentations.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <h4><i class="fas fa-palette"></i> Digital Art (5+ Years)</h4>
+                        <p>Creating original digital illustrations, character designs, and concept art using both traditional digital painting techniques and modern tools.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <h4><i class="fas fa-robot"></i> AI Content Creation (1+ Years)</h4>
+                        <p>Leveraging AI tools for content generation, image creation, and workflow optimization while maintaining artistic direction and quality control.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-content" id="development">
+                <div class="skills-grid">
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000">
+                        <h4><i class="fas fa-code"></i> Web Development (4 Years)</h4>
+                        <p>Full-stack development with expertise in frontend (HTML, CSS, JavaScript, React) and backend (Node.js, Python, PHP) technologies.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <h4><i class="fas fa-shield-alt"></i> Cybersecurity (4 Years)</h4>
+                        <p>Implementing security protocols, vulnerability assessments, and secure coding practices for web applications and digital platforms.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <h4><i class="fas fa-database"></i> Database Management</h4>
+                        <p>Designing and managing databases (MySQL, MongoDB) with focus on performance optimization, security, and scalability.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <h4><i class="fas fa-server"></i> System Architecture</h4>
+                        <p>Designing scalable system architectures for web platforms, considering performance, security, and maintainability.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-content" id="business">
+                <div class="skills-grid">
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000">
+                        <h4><i class="fas fa-chess"></i> Digital Strategy</h4>
+                        <p>Developing comprehensive digital strategies for platform growth, user acquisition, and community building across multiple verticals.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <h4><i class="fas fa-chart-line"></i> Platform Management</h4>
+                        <p>Managing multiple digital platforms simultaneously, including content strategy, user engagement, and technical maintenance.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <h4><i class="fas fa-users"></i> Community Building</h4>
+                        <p>Creating and nurturing online communities around specific interests, from freelancers to music creators and news readers.</p>
+                    </div>
+                    <div class="skill-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <h4><i class="fas fa-lightbulb"></i> Product Conceptualization</h4>
+                        <p>Identifying market needs and conceptualizing digital products that solve specific problems for target audiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Journey Timeline -->
+    <section class="journey" id="journey">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>My Journey Timeline</h2>
+                <p>From freelancer to founder of multiple platforms</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- 2018 -->
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3>Beginning of Freelance Journey</h3>
+                        <p>Started offering graphic design and video editing services to local businesses. Built initial portfolio and client base through word-of-mouth and online platforms.</p>
+                    </div>
+                </div>
+                
+                <!-- 2019 -->
+                <div class="timeline-item" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3>Expansion into Programming</h3>
+                        <p>Began learning web development and cybersecurity fundamentals. Started taking on small web development projects alongside design work.</p>
+                    </div>
+                </div>
+                
+                <!-- 2020 -->
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Founding Colony Core</h3>
+                        <p>Formalized Colony Core as a software engineering company. Launched first major platform: Freelancers Colony, addressing the need for freelancer education and exposure.</p>
+                    </div>
+                </div>
+                
+                <!-- 2021 -->
+                <div class="timeline-item" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3>Platform Expansion</h3>
+                        <p>Launched Planet Colony and Viral Son, expanding into news and content aggregation. Began BSc. Mathematics & Computer Science at NOUN Uyo Study Center.</p>
+                    </div>
+                </div>
+                
+                <!-- 2022 -->
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>AI Integration & Music Platform</h3>
+                        <p>Started incorporating AI tools into creative workflow. Launched Planet Play for music creators and lovers. Expanded Michael Edet Portal for client management.</p>
+                    </div>
+                </div>
+                
+                <!-- 2023 -->
+                <div class="timeline-item" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023 - Present</div>
+                        <h3>Current Focus & Future Vision</h3>
+                        <p>Managing all Colony Core platforms while continuing studies. Exploring AI content creation at scale. Planning next phase of platform development and potential team expansion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="education-bg"></div>
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Education & Continuous Learning</h2>
+                <p>Formal education complementing practical experience</p>
+            </div>
+            
+            <div class="education-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="education-header">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-info">
+                        <h3>BSc. Mathematics & Computer Science</h3>
+                        <p>National Open University of Nigeria, Uyo Study Center</p>
+                        <p style="color: var(--yellow-primary); font-weight: 600; margin-top: 10px;">Current Status: In Progress | Expected Completion: 2025</p>
+                    </div>
+                </div>
+                
+                <div class="education-details">
+                    <h4>How Education Complements My Work</h4>
+                    <ul>
+                        <li><strong>Mathematical Foundation:</strong> Enhances algorithmic thinking for platform development</li>
+                        <li><strong>Computer Science Principles:</strong> Provides theoretical backing for cybersecurity implementations</li>
+                        <li><strong>Problem-Solving Skills:</strong> Formal education in systematic approaches to complex problems</li>
+                        <li><strong>Continuous Learning:</strong> Balancing academic studies with running multiple platforms demonstrates time management and dedication</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 30px;">Self-Directed Learning & Certifications</h4>
+                    <ul>
+                        <li>Cybersecurity Fundamentals & Ethical Hacking</li>
+                        <li>Full-Stack Web Development Certification</li>
+                        <li>Advanced Graphic Design & Digital Art Techniques</li>
+                        <li>AI & Machine Learning Applications in Creative Work</li>
+                        <li>Digital Marketing & Platform Growth Strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Let's Build Something Together</h2>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Whether you need design work, web development, cybersecurity consultation, or want to collaborate on a platform idea, I bring both creative vision and technical expertise to every project.</p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <a href="contact.html" class="btn btn-primary btn-large">Start a Project</a>
+                <a href="#platforms" class="btn btn-outline btn-large">Explore My Platforms</a>
+                <a href="store.html" class="btn btn-outline btn-large">Shop Digital Products</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Colony Core</h3>
+                    <p>A software engineering company building digital solutions and platforms that connect communities and solve real-world problems.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Platforms</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Freelancers Colony</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Planet Colony</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Michael Edet Portal</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Viral Son</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Planet Play</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Graphic Design</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Video Editing</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Web Development</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Cybersecurity</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> AI Content Creation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Uyo, Akwa Ibom State<br>Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>michael@colonycore.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 (0) 812 345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-university"></i>
+                            <span>BSc. Mathematics & Computer Science<br>NOUN Uyo Study Center</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Colony Core. All rights reserved. | Founded & Operated by Michael Edet</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100
+        });
+        
+        // Skills Tabs Functionality
+        const skillTabs = document.querySelectorAll('.skill-tab');
+        const skillsContents = document.querySelectorAll('.skills-content');
+        
+        skillTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                skillTabs.forEach(t => t.classList.remove('active'));
+                skillsContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Floating animation for badge
+        const floatingElements = document.querySelectorAll('.floating');
+        floatingElements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+</html>

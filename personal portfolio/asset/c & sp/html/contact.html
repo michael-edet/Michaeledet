@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Michael Edet - Get In Touch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="/personal portfolio/asset/c & sp/header/header.css">
+    <style>
+        /* Base Variables - Matching Main Page */
+        :root {
+            --yellow-primary: #FFD700;
+            --yellow-light: #FFF9C4;
+            --yellow-dark: #FFA000;
+            --black-primary: #0a0a0a;
+            --black-light: #121212;
+            --black-lighter: #1e1e1e;
+            --text-light: #F5F5F5;
+            --text-muted: #9E9E9E;
+            --gradient-primary: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+            --gradient-secondary: linear-gradient(90deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title h1 {
+            font-size: 3.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .section-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--yellow-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateX(-5px);
+        }
+        
+        /* Hero Section */
+        .contact-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero-content h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--lighter-black);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Contact Info Cards */
+        .contact-info-section {
+            background-color: var(--black-light);
+            padding: 80px 0;
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .info-card {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 35px 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--yellow-primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        
+        .info-icon i {
+            font-size: 2.5rem;
+            color: var(--yellow-primary);
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--yellow-primary);
+            margin-bottom: 15px;
+        }
+        
+        .info-card p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .info-link {
+            color: var(--yellow-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-link:hover {
+            gap: 12px;
+        }
+        
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 80px 0;
+        }
+        
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .form-info {
+            background: var(--black-lighter);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .form-info h2 {
+            color: var(--yellow-primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .form-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .availability {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .availability h3 {
+            color: var(--yellow-primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .availability p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .availability i {
+            color: var(--yellow-primary);
+        }
+        
+        .contact-form {
+            background: var(--black-lighter);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        
+        .form-label span {
+            color: var(--yellow-primary);
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--yellow-primary);
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .form-textarea {
+            height: 180px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFD700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* Social Connect */
+        .social-connect {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--black-light);
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+        
+        .social-connect h2 {
+            color: var(--yellow-primary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .social-connect p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--black-lighter);
+            color: var(--yellow-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-link:hover::before {
+            opacity: 1;
+        }
+        
+        .social-link i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-link:hover i {
+            color: var(--black-primary);
+        }
+        
+        .social-label {
+            display: block;
+            margin-top: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--black-lighter);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .faq-question h3 {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            margin: 0;
+        }
+        
+        .faq-icon {
+            color: var(--yellow-primary);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            padding-bottom: 25px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        /* CTA Section */
+        .contact-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+        
+        .contact-cta h2 {
+            font-size: 2.8rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .form-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-link {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-btn {
+                top: 90px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .contact-cta {
+                padding: 50px 20px;
+            }
+            
+            .contact-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .social-link {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Form Validation Styles */
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-input.error, .form-textarea.error, .form-select.error {
+            border-color: #ff6b6b;
+        }
+        
+        .success-message {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid rgba(46, 204, 113, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .success-message h3 {
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+        
+        .success-message p {
+            color: var(--text-muted);
+        }
+        
+        /* Loading Animation */
+        .btn-loading {
+            position: relative;
+            color: transparent !important;
+        }
+        
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-top-color: var(--black-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Map Placeholder */
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: var(--black-lighter);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            margin-top: 40px;
+        }
+        
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .map-placeholder p {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    
+     <!-- Header -->
+ <header id="header">
+     <div class="container header-container">
+         <a href="/personal portfolio/index.html" class="logo">
+             <div class="logo-icon">
+                 <i class="fas fa-user"></i>
+             </div>
+             <div class="logo-text">
+                 <span class="main">MICHAEL EDET</span>
+                 <span class="sub">Digital Portfolio</span>
+             </div>
+         </a>
+         
+         <div class="menu-toggle" id="menuToggle">
+             <i class="fas fa-bars"></i>
+         </div>
+         
+         <nav id="navMenu">
+             <ul>
+                 <li><a href="/personal portfolio/index.html">Home</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/about.html">About</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/skill.html">Skills</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/service.html">Services</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/portfolio.html">Portfolio</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/contact.html">Contact</a></li>
+             </ul>
+         </nav>
+     </div>
+ </header>
+    
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn" data-aos="fade-right" data-aos-delay="300">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+    
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Let's <span>Connect</span> & Create</h1>
+                <p>Ready to bring your digital vision to life? I'm available for projects, consultations, and collaborations. Let's discuss how we can work together to achieve your goals.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Information Cards -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Get In Touch</h1>
+                <p>Multiple ways to reach out and start a conversation about your project or inquiry</p>
+            </div>
+            
+            <div class="info-cards" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Me</h3>
+                    <p>For project inquiries, collaboration proposals, or detailed discussions</p>
+                    <a href="mailto:michael@example.com" class="info-link">
+                        michael@example.com
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <p class="response-time" style="margin-top: 15px; font-size: 0.9rem; color: var(--yellow-primary);">
+                        <i class="fas fa-clock"></i> Response within 24 hours
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call/WhatsApp</h3>
+                    <p>For urgent matters or if you prefer to discuss your project directly</p>
+                    <a href="tel:+2348123456789" class="info-link">
+                        +234 (0) 812 345 6789
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <p class="availability" style="margin-top: 15px; font-size: 0.9rem; color: var(--yellow-primary);">
+                        <i class="fas fa-calendar-alt"></i> Mon-Fri: 9AM-6PM WAT
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Based in Uyo, Akwa Ibom State, Nigeria. Available for remote work worldwide.</p>
+                    <p style="color: var(--yellow-light); font-weight: 600;">
+                        Uyo, Akwa Ibom State<br>
+                        Nigeria
+                    </p>
+                    <p class="timezone" style="margin-top: 15px; font-size: 0.9rem; color: var(--yellow-primary);">
+                        <i class="fas fa-globe"></i> Timezone: WAT (UTC+1)
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Schedule a Call</h3>
+                    <p>Book a convenient time for a consultation call to discuss your project in detail</p>
+                    <a href="#booking" class="info-link" onclick="showBookingModal()">
+                        Book a Consultation
+                        <i class="fas fa-calendar-plus"></i>
+                    </a>
+                    <p class="duration" style="margin-top: 15px; font-size: 0.9rem; color: var(--yellow-primary);">
+                        <i class="fas fa-hourglass-half"></i> 30-minute sessions
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container" data-aos="fade-up" data-aos-duration="1000">
+                <div class="form-info">
+                    <h2>Send a Message</h2>
+                    <p>Fill out the form with details about your project, timeline, and budget. I'll review your inquiry and get back to you with a tailored proposal or answer any questions you may have.</p>
+                    
+                    <div class="availability">
+                        <h3>Typical Response Time</h3>
+                        <p><i class="fas fa-check-circle"></i> Initial response: Within 24 hours</p>
+                        <p><i class="fas fa-check-circle"></i> Project proposal: 1-2 business days</p>
+                        <p><i class="fas fa-check-circle"></i> Consultation call: Within 48 hours</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name <span>*</span></label>
+                                <input type="text" class="form-input" id="firstName" placeholder="Enter your first name" required>
+                                <div class="error-message" id="firstNameError">Please enter your first name</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Last Name <span>*</span></label>
+                                <input type="text" class="form-input" id="lastName" placeholder="Enter your last name" required>
+                                <div class="error-message" id="lastNameError">Please enter your last name</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address <span>*</span></label>
+                            <input type="email" class="form-input" id="email" placeholder="Enter your email address" required>
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" id="phone" placeholder="Enter your phone number (optional)">
+                            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Service Interest <span>*</span></label>
+                            <select class="form-select" id="service" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="graphic-design">Graphic & Video Design</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="cybersecurity">Cybersecurity Solutions</option>
+                                <option value="platform-development">Platform Development</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="serviceError">Please select a service</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Project Budget <span>*</span></label>
+                            <select class="form-select" id="budget" required>
+                                <option value="" disabled selected>Select budget range</option>
+                                <option value="under-1000">Under $1,000</option>
+                                <option value="1000-5000">$1,000 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="10000-25000">$10,000 - $25,000</option>
+                                <option value="25000-plus">$25,000+</option>
+                                <option value="undecided">Undecided / Need quote</option>
+                            </select>
+                            <div class="error-message" id="budgetError">Please select a budget range</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Project Details <span>*</span></label>
+                            <textarea class="form-textarea" id="message" placeholder="Describe your project, goals, timeline, and any specific requirements" required></textarea>
+                            <div class="error-message" id="messageError">Please enter your project details</div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        
+                        <div class="success-message" id="successMessage">
+                            <h3><i class="fas fa-check-circle"></i> Message Sent Successfully!</h3>
+                            <p>Thank you for reaching out. I've received your message and will get back to you within 24 hours. In the meantime, feel free to explore my portfolio or connect with me on social media.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Social Connect -->
+            <div class="social-connect" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h2>Connect on Social Media</h2>
+                <p>Follow me for design inspiration, development tips, project updates, and behind-the-scenes content</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        <span class="social-label">Twitter</span>
+                    </a>
+                    
+                    <a href="#" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span class="social-label">LinkedIn</span>
+                    </a>
+                    
+                    <a href="#" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span class="social-label">GitHub</span>
+                    </a>
+                    
+                    <a href="#" class="social-link" target="_blank">
+                        <i class="fab fa-behance"></i>
+                        <span class="social-label">Behance</span>
+                    </a>
+                    
+                    <a href="#" class="social-link" target="_blank">
+                        <i class="fab fa-dribbble"></i>
+                        <span class="social-label">Dribbble</span>
+                    </a>
+                    
+                    <a href="#" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        <span class="social-label">Instagram</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Map Placeholder -->
+            <div class="map-placeholder" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Based in Uyo, Akwa Ibom State, Nigeria</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Available for remote work worldwide</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Frequently Asked Questions</h1>
+                <p>Common questions about working with me, project processes, and collaboration details</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="faq-question">
+                        <h3>What is your typical project process?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>My process typically involves: 1) Initial consultation to understand your needs, 2) Project proposal with timeline and cost estimate, 3) Agreement and deposit, 4) Design/development phase with regular updates, 5) Review and revisions, 6) Final delivery and launch, 7) Post-launch support. The exact process may vary based on project type and complexity.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="faq-question">
+                        <h3>What are your rates and pricing structure?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I offer both project-based pricing and hourly rates depending on the scope of work. For well-defined projects, I provide fixed quotes. For ongoing work or projects with evolving requirements, I work on an hourly basis ($50-75/hr depending on complexity). Detailed pricing for specific services is available on my Services page. All projects begin with a free consultation to determine scope and provide an accurate quote.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="faq-question">
+                        <h3>What is your average project timeline?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Timelines vary based on project complexity: Basic websites (2-4 weeks), Web applications (4-12 weeks), Brand identity projects (3-6 weeks), Platform development (8-20 weeks). During our initial consultation, I'll provide a detailed timeline based on your specific requirements. I prioritize quality and thoroughness while working efficiently to meet agreed deadlines.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="faq-question">
+                        <h3>Do you work with international clients?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, I work with clients worldwide. I'm experienced in remote collaboration across different time zones (primarily WAT/UTC+1). I use tools like Zoom, Slack, and project management platforms to ensure seamless communication. I'm flexible with meeting times and can accommodate most time zones for consultation calls.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="faq-question">
+                        <h3>What forms of payment do you accept?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I accept bank transfers, PayPal, and cryptocurrency (Bitcoin, Ethereum). For projects over $1,000, I typically require a 30-50% deposit to begin work, with the balance due upon completion. For larger projects, I can arrange milestone-based payments. All payment terms are clearly outlined in the project agreement before work begins.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="faq-question">
+                        <h3>Do you provide ongoing maintenance and support?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, I offer ongoing maintenance packages for websites and applications. These typically include security updates, performance monitoring, bug fixes, and minor content updates. Maintenance plans start at $50/month depending on the complexity of the project. All projects include a warranty period (typically 30 days) after launch during which I fix any issues free of charge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Ready to Start Your Project?</h2>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Whether you have a detailed project brief or just an idea, I'm here to help bring your vision to life. Let's create something exceptional together.</p>
+            
+            <div class="cta-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <a href="#contactForm" class="btn btn-primary btn-large" onclick="scrollToForm()">
+                    <i class="fas fa-paper-plane"></i> Send a Message
+                </a>
+                <a href="services.html" class="btn" style="background: transparent; color: var(--yellow-primary); border: 2px solid var(--yellow-primary);">
+                    <i class="fas fa-clipboard-list"></i> View Services
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Modal (Hidden by default) -->
+    <div id="bookingModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: var(--black-lighter); border-radius: 20px; padding: 40px; max-width: 500px; width: 90%; border: 1px solid rgba(255, 215, 0, 0.2); position: relative;">
+            <button onclick="closeBookingModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--yellow-primary); font-size: 1.5rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2 style="color: var(--yellow-primary); margin-bottom: 20px;">Schedule a Consultation</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Select a date and time for a 30-minute consultation call to discuss your project in detail.</p>
+            
+            <div class="form-group">
+                <label class="form-label">Preferred Date</label>
+                <input type="date" class="form-input" id="bookingDate" style="margin-bottom: 20px;">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Preferred Time</label>
+                <select class="form-select" id="bookingTime">
+                    <option value="" disabled selected>Select a time slot</option>
+                    <option value="9:00 AM">9:00 AM - 9:30 AM</option>
+                    <option value="11:00 AM">11:00 AM - 11:30 AM</option>
+                    <option value="2:00 PM">2:00 PM - 2:30 PM</option>
+                    <option value="4:00 PM">4:00 PM - 4:30 PM</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-primary" style="margin-top: 30px; width: 100%;" onclick="submitBooking()">
+                <i class="fas fa-calendar-check"></i> Schedule Call
+            </button>
+            
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 20px;">
+                <i class="fas fa-info-circle"></i> You'll receive a confirmation email with the meeting link after booking.
+            </p>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="/personal portfolio/asset/c & sp/header/header.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100
+        });
+        
+        // FAQ Toggle Functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other FAQ items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Form Validation and Submission
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        
+        // Form validation function
+        function validateForm() {
+            let isValid = true;
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+            });
+            
+            document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(input => {
+                input.classList.remove('error');
+            });
+            
+            // Validate first name
+            const firstName = document.getElementById('firstName');
+            if (!firstName.value.trim()) {
+                document.getElementById('firstNameError').style.display = 'block';
+                firstName.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validate last name
+            const lastName = document.getElementById('lastName');
+            if (!lastName.value.trim()) {
+                document.getElementById('lastNameError').style.display = 'block';
+                lastName.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                document.getElementById('emailError').style.display = 'block';
+                email.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validate phone (if provided)
+            const phone = document.getElementById('phone');
+            if (phone.value.trim()) {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                if (!phoneRegex.test(phone.value.replace(/[\s\-\(\)]/g, ''))) {
+                    document.getElementById('phoneError').style.display = 'block';
+                    phone.classList.add('error');
+                    isValid = false;
+                }
+            }
+            
+            // Validate service
+            const service = document.getElementById('service');
+            if (!service.value) {
+                document.getElementById('serviceError').style.display = 'block';
+                service.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validate budget
+            const budget = document.getElementById('budget');
+            if (!budget.value) {
+                document.getElementById('budgetError').style.display = 'block';
+                budget.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validate message
+            const message = document.getElementById('message');
+            if (!message.value.trim() || message.value.trim().length < 20) {
+                document.getElementById('messageError').textContent = 'Please enter at least 20 characters describing your project';
+                document.getElementById('messageError').style.display = 'block';
+                message.classList.add('error');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        // Form submission handler
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                // Show loading state
+                submitBtn.innerHTML = '';
+                submitBtn.classList.add('btn-loading');
+                submitBtn.disabled = true;
+                
+                // Simulate form submission (in a real scenario, this would be an AJAX call)
+                setTimeout(() => {
+                    // Hide form and show success message
+                    contactForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form after showing success message
+                    contactForm.reset();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                }, 1500);
+            }
+        });
+        
+        // Real-time validation for inputs
+        document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(input => {
+            input.addEventListener('input', function() {
+                this.classList.remove('error');
+                const errorId = this.id + 'Error';
+                const errorElement = document.getElementById(errorId);
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            });
+        });
+        
+        // Booking Modal Functions
+        function showBookingModal() {
+            document.getElementById('bookingModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function submitBooking() {
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+            
+            if (!date || !time) {
+                alert('Please select both date and time for your consultation.');
+                return;
+            }
+            
+            // In a real application, this would send the booking to a server
+            alert(`Consultation booked for ${date} at ${time}. You'll receive a confirmation email shortly.`);
+            closeBookingModal();
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingModal();
+            }
+        });
+        
+        // Set minimum date for booking to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('bookingDate').min = today;
+        
+        // Function to scroll to form
+        function scrollToForm() {
+            document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

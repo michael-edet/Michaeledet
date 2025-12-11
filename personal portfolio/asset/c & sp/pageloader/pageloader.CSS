@@ -1,0 +1,430 @@
+/* pageloader.css */
+
+/* Page Loader Styles */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, rgba(10, 10, 10, 1) 70%);
+    z-index: 1;
+}
+
+.loader-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.image-container {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--yellow-primary);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+    position: relative;
+    animation: zoomInOut 4s ease-in-out infinite;
+}
+
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+    }
+    25% {
+        transform: scale(1.15);
+        box-shadow: 0 0 70px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        transform: scale(0.95);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
+    75% {
+        transform: scale(1.1);
+        box-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
+    }
+}
+
+.loader-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.loader-text {
+    margin-top: 20px;
+}
+
+.loader-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.loader-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.progress-container {
+    width: 300px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin: 30px auto 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    color: var(--yellow-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Image Upload Panel Styles */
+.image-upload-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--black-lighter);
+    border-radius: 16px;
+    padding: 25px;
+    width: 400px;
+    max-width: 90vw;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: none; /* Hidden by default - remove this line to show the upload panel */
+}
+
+.image-upload-panel.active {
+    display: block;
+}
+
+.upload-container h3 {
+    color: var(--yellow-primary);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.upload-container p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.upload-area {
+    border: 2px dashed rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--yellow-primary);
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.upload-area.drag-over {
+    border-color: var(--yellow-primary);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: var(--yellow-primary);
+    margin-bottom: 15px;
+}
+
+.upload-area p {
+    margin-bottom: 15px;
+}
+
+.btn-upload {
+    background: var(--gradient-primary);
+    color: var(--black-primary);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-upload:hover {
+    transform: translateY(-3px);
+}
+
+.upload-note {
+    font-size: 0.85rem;
+    margin-top: 15px;
+    color: var(--text-muted);
+}
+
+.image-preview-container {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    display: none;
+}
+
+.image-preview-container.show {
+    display: block;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.preview-header h4 {
+    color: var(--yellow-primary);
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    background: transparent;
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-small:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+.image-preview {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--yellow-primary);
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-note {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--text-muted);
+}
+
+.upload-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.upload-actions .btn {
+    flex: 1;
+    justify-content: center;
+}
+
+.animation-controls {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+}
+
+.animation-controls h4 {
+    color: var(--yellow-primary);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+.control-group label {
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.control-group select {
+    width: 100%;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.control-group select:focus {
+    outline: none;
+    border-color: var(--yellow-primary);
+}
+
+.control-group label input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: var(--yellow-primary);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--black-primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--yellow-primary);
+    border: 2px solid var(--yellow-primary);
+}
+
+.btn-outline:hover {
+    background: var(--yellow-primary);
+    color: var(--black-primary);
+    transform: translateY(-3px);
+}
+
+/* Animation Variations */
+.animation-slow .image-container {
+    animation-duration: 6s;
+}
+
+.animation-fast .image-container {
+    animation-duration: 2s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .loader-title {
+        font-size: 2.8rem;
+    }
+    
+    .loader-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .progress-container {
+        width: 250px;
+    }
+    
+    .image-upload-panel {
+        width: 350px;
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-container {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 30px;
+    }
+    
+    .loader-title {
+        font-size: 2.2rem;
+    }
+    
+    .loader-subtitle {
+        font-size: 1rem;
+    }
+    
+    .progress-container {
+        width: 200px;
+    }
+    
+    .upload-actions {
+        flex-direction: column;
+    }
+}

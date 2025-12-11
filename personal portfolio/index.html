@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Edet | Digital Creator & Developer</title>
+    <meta name="description" content="Portfolio of Michael Edet - Graphic Designer, Video Editor, Web Developer & Cybersecurity Specialist">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Base Variables */
+        :root {
+            --yellow-primary: #FFD700;
+            --yellow-light: #FFF9C4;
+            --yellow-dark: #FFA000;
+            --black-primary: #0a0a0a;
+            --black-light: #121212;
+            --black-lighter: #1e1e1e;
+            --text-light: #F5F5F5;
+            --text-muted: #9E9E9E;
+            --gradient-primary: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--yellow-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateY(-3px);
+        }
+        
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 18px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .logo-icon i {
+            font-size: 1.5rem;
+            color: var(--black-primary);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text .main {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--yellow-primary);
+            line-height: 1;
+        }
+        
+        .logo-text .sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--yellow-primary);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--yellow-primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero-text h1 .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--yellow-light);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+        
+        .hero-visual {
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--yellow-primary);
+            margin: 0 auto;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--black-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2.5rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .education-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        .education-info h4 {
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .education-info p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        /* Skills Section */
+        .skills {
+            position: relative;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.8rem;
+            color: var(--yellow-primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .skill-category h3 i {
+            font-size: 2rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 12px 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .skill-list li:last-child {
+            border: none;
+        }
+        
+        .skill-list li i {
+            color: var(--yellow-primary);
+            margin-right: 10px;
+        }
+        
+        .skill-level {
+            color: var(--yellow-primary);
+            font-weight: 600;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--black-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .service-icon i {
+            font-size: 2.2rem;
+            color: var(--yellow-primary);
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li:last-child {
+            border: none;
+        }
+        
+        .service-features li i {
+            color: var(--yellow-primary);
+            margin-right: 10px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            position: relative;
+        }
+        
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            color: var(--text-light);
+            padding: 10px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            border-color: var(--yellow-primary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: var(--black-lighter);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .portfolio-img {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 215, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            padding: 20px;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay h3 {
+            color: var(--black-primary);
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-overlay p {
+            color: var(--black-lighter);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-overlay a {
+            color: var(--black-primary);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-overlay a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-info {
+            padding: 20px;
+        }
+        
+        .portfolio-info h3 {
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--black-light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            border-color: var(--yellow-primary);
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-content {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--yellow-primary);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .cta h2 {
+            font-size: 3.5rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black-primary);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            color: var(--yellow-primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .footer-col p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--black-lighter);
+            color: var(--yellow-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow-primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--yellow-primary);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            color: var(--yellow-primary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content, .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .founder-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--black-light);
+                transition: 0.5s;
+                z-index: 1000;
+                padding: 100px 40px 40px;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .services-grid, .testimonials-grid, .portfolio-grid, .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="main">MICHAEL EDET</span>
+                    <span class="sub">Digital Portfolio</span>
+                </div>
+            </a>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h1>Michael <span class="gradient-text">Edet</span></h1>
+                    <span class="subtitle">Digital Creator & Developer</span>
+                    <p>5+ years in graphic design & video editing, 4 years in programming (cybersecurity & web development), and 5+ years as a digital artist. Combining creative vision with technical expertise.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary btn-large">
+                            <i class="fas fa-eye"></i> View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-outline btn-large">
+                            <i class="fas fa-paper-plane"></i> Get In Touch
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Design</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Years Development</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">BSc.</span>
+                            <span class="stat-label">Math & CS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="profile-image floating">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Michael Edet">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-bg"></div>
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>About Me</h2>
+                <p>Combining creative design with technical expertise to deliver comprehensive digital solutions</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h3>My Journey</h3>
+                    <p>I'm Michael Edet, a passionate digital creator with expertise spanning graphic design, video editing, web development, and cybersecurity. With over 5 years of hands-on experience, I've honed my skills across multiple disciplines to become a versatile digital professional.</p>
+                    <p>My journey began in graphic design and video editing, where I developed a keen eye for aesthetics and visual storytelling. This foundation led me to explore programming, where I discovered the power of combining creative design with technical implementation.</p>
+                    <p>Currently, I'm pursuing a BSc. in Mathematics & Computer Science at the National Open University of Nigeria, Uyo Study Center. This academic pursuit complements my practical experience, providing me with a strong theoretical foundation in computing principles.</p>
+                    
+                    <div class="education-info">
+                        <h4>Current Education</h4>
+                        <p>BSc. Mathematics & Computer Science<br>
+                        National Open University of Nigeria, Uyo Study Center</p>
+                    </div>
+                </div>
+                
+                <div class="about-text" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <h3>My Philosophy</h3>
+                    <p>I believe that the most effective digital solutions emerge at the intersection of creativity and technology. My approach integrates aesthetic design with functional implementation, ensuring that every project not only looks exceptional but also performs optimally.</p>
+                    <p>Whether I'm designing a brand identity, developing a web application, or securing a digital platform, I focus on creating solutions that are user-centric, scalable, and maintainable.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Platforms Developed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Combined Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 30px;">
+                        <i class="fas fa-envelope"></i> Work With Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>My Skills</h2>
+                <p>A diverse skill set that bridges creative design and technical development</p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category" data-aos="fade-up" data-aos-duration="1000">
+                    <h3><i class="fas fa-paint-brush"></i> Creative Design</h3>
+                    <ul class="skill-list">
+                        <li>Graphic Design <span class="skill-level">Expert</span></li>
+                        <li>Video Editing & Production <span class="skill-level">Expert</span></li>
+                        <li>Digital Art & Illustration <span class="skill-level">Advanced</span></li>
+                        <li>Brand Identity Design <span class="skill-level">Advanced</span></li>
+                        <li>UI/UX Design <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <h3><i class="fas fa-code"></i> Development</h3>
+                    <ul class="skill-list">
+                        <li>Frontend Development <span class="skill-level">Advanced</span></li>
+                        <li>Backend Development <span class="skill-level">Intermediate</span></li>
+                        <li>Responsive Web Design <span class="skill-level">Expert</span></li>
+                        <li>API Development <span class="skill-level">Intermediate</span></li>
+                        <li>Database Management <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                    <ul class="skill-list">
+                        <li>Security Audits <span class="skill-level">Intermediate</span></li>
+                        <li>Vulnerability Assessment <span class="skill-level">Intermediate</span></li>
+                        <li>Secure Coding Practices <span class="skill-level">Advanced</span></li>
+                        <li>Data Protection <span class="skill-level">Advanced</span></li>
+                        <li>Network Security Basics <span class="skill-level">Intermediate</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-bg"></div>
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>My Services</h2>
+                <p>Comprehensive digital solutions tailored to your specific needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Graphic & Video Design</h3>
+                    <p>5+ years of experience creating compelling visual identities, marketing materials, and engaging video content that tells your brand's story.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Brand Identity Development</li>
+                        <li><i class="fas fa-check"></i> Marketing Material Design</li>
+                        <li><i class="fas fa-check"></i> Video Editing & Production</li>
+                        <li><i class="fas fa-check"></i> Social Media Graphics</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>4 years of full-stack development expertise, building responsive, secure, and scalable web applications and platforms.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Full-Stack Development</li>
+                        <li><i class="fas fa-check"></i> Responsive Web Design</li>
+                        <li><i class="fas fa-check"></i> E-commerce Solutions</li>
+                        <li><i class="fas fa-check"></i> API Development</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity Solutions</h3>
+                    <p>Implementing security protocols and best practices to protect web applications and digital assets from threats.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Security Audits</li>
+                        <li><i class="fas fa-check"></i> Vulnerability Assessment</li>
+                        <li><i class="fas fa-check"></i> Secure Coding Practices</li>
+                        <li><i class="fas fa-check"></i> Data Protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>My Portfolio</h2>
+                <p>A selection of my recent projects and creative work</p>
+            </div>
+            
+            <div class="portfolio-filters" data-aos="fade-up" data-aos-duration="1000">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+                <button class="filter-btn" data-filter="platform">Platforms</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="platform" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Freelancers Colony">
+                        <div class="portfolio-overlay">
+                            <h3>Freelancers Colony</h3>
+                            <p>Education platform for freelancers</p>
+                            <div>
+                                <a href="#"><i class="fas fa-search"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Freelancers Colony</h3>
+                        <p>A dedicated platform for freelancer education, collaboration, and client exposure.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="platform" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Planet Colony">
+                        <div class="portfolio-overlay">
+                            <h3>Planet Colony</h3>
+                            <p>News & entertainment platform</p>
+                            <div>
+                                <a href="#"><i class="fas fa-search"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Planet Colony</h3>
+                        <p>Comprehensive news, sports, entertainment, and technology platform with community features.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="design" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Brand Identity Design">
+                        <div class="portfolio-overlay">
+                            <h3>Brand Identity</h3>
+                            <p>Complete brand package for a tech startup</p>
+                            <div>
+                                <a href="#"><i class="fas fa-search"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Tech Startup Branding</h3>
+                        <p>Complete brand identity including logo, color palette, typography, and marketing materials.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="development" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Website">
+                        <div class="portfolio-overlay">
+                            <h3>E-commerce Platform</h3>
+                            <p>Full-featured online store</p>
+                            <div>
+                                <a href="#"><i class="fas fa-search"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>E-commerce Website</h3>
+                        <p>Secure, responsive e-commerce platform with payment integration and inventory management.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="design" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Video Production">
+                        <div class="portfolio-overlay">
+                            <h3>Video Production</h3>
+                            <p>Corporate video for a financial institution</p>
+                            <div>
+                                <a href="#"><i class="fas fa-search"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Corporate Video Series</h3>
+                        <p>Complete video production including scripting, filming, editing, and post-production.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="development" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Mobile App UI">
+                        <div class="portfolio-overlay">
+                            <h3>Mobile App UI</h3>
+                            <p>Banking application interface design</p>
+                            <div>
+                                <a href="#"><i class="fas fa-search"></i></a>
+                                <a href="#"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Mobile Banking App</h3>
+                        <p>User interface design and prototyping for a secure mobile banking application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Client Testimonials</h2>
+                <p>What clients and collaborators say about my work</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        "Michael transformed our brand identity with his creative design skills. His attention to detail and understanding of our vision resulted in a brand package that perfectly represents our company."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, Tech Innovations Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        "The e-commerce platform Michael developed for us exceeded expectations. His focus on security and user experience resulted in a 40% increase in our online sales within the first quarter."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Alex Rodriguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Alex Rodriguez</h4>
+                            <p>Operations Manager, Retail Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="testimonial-content">
+                        "Working with Michael on our video campaign was a fantastic experience. His creative vision combined with technical expertise resulted in a compelling series that significantly boosted our engagement."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Okon</h4>
+                            <p>Marketing Director, Prime Media</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Ready to Bring Your Vision to Life?</h2>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Whether you need a stunning design, a secure web application, or a comprehensive digital solution, I bring both creative vision and technical expertise to every project.</p>
+            
+            <div class="cta-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <a href="mailto:michael@example.com" class="btn btn-primary btn-large">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
+                <a href="#portfolio" class="btn btn-outline btn-large">
+                    <i class="fas fa-eye"></i> View More Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Michael Edet</h3>
+                    <p>A versatile digital creator with expertise in graphic design, video editing, web development, and cybersecurity. Combining creative vision with technical expertise.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>My Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Graphic Design</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Video Editing</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Web Development</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Cybersecurity</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Brand Identity</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-arrow-right"></i> About</a></li>
+                        <li><a href="#skills"><i class="fas fa-arrow-right"></i> Skills</a></li>
+                        <li><a href="#portfolio"><i class="fas fa-arrow-right"></i> Portfolio</a></li>
+                        <li><a href="#contact"><i class="fas fa-arrow-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Uyo, Akwa Ibom State<br>Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@michaeledet.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 (0) 812 345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-university"></i>
+                            <span>BSc. Mathematics & Computer Science<br>NOUN Uyo Study Center</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Michael Edet. All rights reserved. | Designed & Developed by Michael Edet</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100
+        });
+        
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 100);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Floating animation for profile image
+        const floatingElements = document.querySelectorAll('.floating');
+        floatingElements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+    <!-- pageloader -->
+    <script src="/personal portfolio/asset/c & sp/pageloader/pageloader-single.js"></script>
+</body>
+</html>

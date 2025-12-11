@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail | YellowBlack Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Variables */
+        :root {
+            --yellow-primary: #FFD700;
+            --yellow-light: #FFF9C4;
+            --yellow-dark: #FFA000;
+            --black-primary: #121212;
+            --black-light: #1E1E1E;
+            --black-lighter: #2C2C2C;
+            --text-light: #F5F5F5;
+            --text-muted: #9E9E9E;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--yellow-primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--yellow-primary);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--yellow-primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--yellow-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--black-light);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--yellow-primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--text-light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--yellow-primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--yellow-primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--yellow-primary);
+            cursor: pointer;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 30px 0;
+            background-color: var(--black-light);
+            margin-top: 80px;
+        }
+        
+        .breadcrumb .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .breadcrumb h1 {
+            font-size: 2rem;
+            color: var(--yellow-primary);
+        }
+        
+        .breadcrumb-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .breadcrumb-links li {
+            margin-left: 15px;
+            position: relative;
+        }
+        
+        .breadcrumb-links li:not(:first-child)::before {
+            content: "/";
+            position: absolute;
+            left: -12px;
+            color: var(--text-muted);
+        }
+        
+        .breadcrumb-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb-links a:hover {
+            color: var(--yellow-primary);
+        }
+        
+        .breadcrumb-links .current {
+            color: var(--yellow-primary);
+            font-weight: 600;
+        }
+        
+        /* Portfolio Detail */
+        .portfolio-detail {
+            background-color: var(--black-primary);
+        }
+        
+        .portfolio-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .portfolio-gallery {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 500px;
+            position: relative;
+        }
+        
+        .portfolio-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-gallery:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .gallery-controls span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+        
+        .gallery-controls span.active {
+            background: var(--yellow-primary);
+        }
+        
+        .portfolio-info {
+            background: var(--black-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .portfolio-info h3 {
+            color: var(--yellow-primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--yellow-dark);
+        }
+        
+        .info-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--black-lighter);
+        }
+        
+        .info-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border: none;
+        }
+        
+        .info-item h4 {
+            display: flex;
+            align-items: center;
+            color: var(--yellow-light);
+            margin-bottom: 10px;
+        }
+        
+        .info-item h4 i {
+            margin-right: 10px;
+            color: var(--yellow-primary);
+        }
+        
+        .info-item p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        
+        .info-item ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .info-item ul li {
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+        
+        /* Project Description */
+        .project-description {
+            margin-top: 60px;
+        }
+        
+        .project-description h3 {
+            color: var(--yellow-primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .project-description p {
+            margin-bottom: 25px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: var(--black-light);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h4 {
+            color: var(--yellow-light);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+        
+        /* Project Navigation */
+        .project-navigation {
+            background: var(--black-light);
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: color 0.3s;
+            max-width: 45%;
+        }
+        
+        .nav-link:hover {
+            color: var(--yellow-primary);
+        }
+        
+        .nav-link.prev {
+            text-align: left;
+        }
+        
+        .nav-link.next {
+            text-align: right;
+            flex-direction: row-reverse;
+        }
+        
+        .nav-link i {
+            font-size: 1.5rem;
+            margin: 0 15px;
+        }
+        
+        .nav-link h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--yellow-primary);
+        }
+        
+        .nav-link span {
+            color: var(--text-muted);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black-lighter);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--yellow-primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-col p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--black-light);
+            color: var(--yellow-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateY(-5px);
+        }
+        
+        .quick-links {
+            list-style: none;
+        }
+        
+        .quick-links li {
+            margin-bottom: 12px;
+        }
+        
+        .quick-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .quick-links a:hover {
+            color: var(--yellow-primary);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            color: var(--yellow-primary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid var(--black-light);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .portfolio-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-gallery {
+                height: 400px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--black-light);
+                transition: 0.5s;
+                z-index: 999;
+                padding: 30px;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .breadcrumb .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .breadcrumb-links {
+                justify-content: center;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .nav-link, .nav-link.next {
+                max-width: 100%;
+                text-align: left;
+                flex-direction: row;
+            }
+            
+            .nav-link.next {
+                flex-direction: row-reverse;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">YELLOW<span>BLACK</span></a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <h1>E-Commerce Platform</h1>
+            <ul class="breadcrumb-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li class="current">E-Commerce Platform</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Portfolio Detail -->
+    <section class="portfolio-detail">
+        <div class="container">
+            <div class="portfolio-content">
+                <div class="portfolio-gallery animate">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="E-Commerce Platform">
+                    <div class="gallery-controls">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-info animate delay-1">
+                    <h3>Project Information</h3>
+                    
+                    <div class="info-item">
+                        <h4><i class="fas fa-folder"></i> Category</h4>
+                        <p>Web Design & Development</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4><i class="fas fa-user"></i> Client</h4>
+                        <p>Fashion Retail Co.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4><i class="fas fa-calendar"></i> Date</h4>
+                        <p>March 15, 2023</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4><i class="fas fa-link"></i> Project URL</h4>
+                        <p><a href="#" style="color: var(--yellow-primary);">www.fashionretailco.com</a></p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4><i class="fas fa-tags"></i> Technologies</h4>
+                        <ul>
+                            <li>React.js</li>
+                            <li>Node.js</li>
+                            <li>MongoDB</li>
+                            <li>Stripe Payment</li>
+                            <li>Cloudinary</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 20px;">
+                        <i class="fas fa-external-link-alt"></i> Visit Live Project
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-description animate delay-2">
+                <h3>Project Overview</h3>
+                
+                <p>This comprehensive e-commerce platform was developed for Fashion Retail Co., a premium clothing brand looking to expand their online presence. The project involved creating a seamless shopping experience that reflects their brand identity while providing robust functionality for both customers and administrators.</p>
+                
+                <p>The platform features a modern, responsive design with intuitive navigation, high-performance product filtering, and a streamlined checkout process. Special attention was given to creating a mobile-first experience that maintains the premium feel of the brand across all devices.</p>
+                
+                <p>Key challenges included integrating multiple payment gateways, implementing real-time inventory management, and creating a custom CMS for product management. The solution resulted in a 40% increase in conversion rates and 30% higher average order value compared to their previous platform.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Product Management</h4>
+                        <p>Custom CMS for managing products, categories, inventory, and promotions with real-time updates.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Responsive Design</h4>
+                        <p>Fully responsive layout that adapts seamlessly from mobile to desktop with consistent brand experience.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-lock"></i>
+                        <h4>Secure Checkout</h4>
+                        <p>PCI-compliant payment processing with multiple gateway options and encrypted data storage.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Analytics Integration</h4>
+                        <p>Comprehensive analytics dashboard with customer behavior tracking and sales performance metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Navigation -->
+    <section class="project-navigation">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#" class="nav-link prev">
+                    <i class="fas fa-arrow-left"></i>
+                    <div>
+                        <h4>Previous Project</h4>
+                        <span>Mobile Banking App</span>
+                    </div>
+                </a>
+                
+                <a href="index.html#portfolio" class="btn btn-outline">
+                    <i class="fas fa-th"></i> View All Projects
+                </a>
+                
+                <a href="#" class="nav-link next">
+                    <i class="fas fa-arrow-right"></i>
+                    <div>
+                        <h4>Next Project</h4>
+                        <span>Travel Agency Brand</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>YellowBlack</h3>
+                    <p>Creating stunning digital experiences with a focus on user-centered design and cutting-edge development techniques.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="quick-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Design Street, Creative City, CA 90210</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@yellowblack.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 YellowBlack Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Gallery Controls
+        const controls = document.querySelectorAll('.gallery-controls span');
+        controls.forEach((control, index) => {
+            control.addEventListener('click', () => {
+                controls.forEach(c => c.classList.remove('active'));
+                control.classList.add('active');
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initial check on page load
+        window.addEventListener('load', animateOnScroll);
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

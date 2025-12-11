@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Subpage</title>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Include AOS if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Your page styles -->
+    <style>
+        /* Your page CSS here */
+        body {
+            padding-top: 80px; /* Account for fixed header */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be inserted here by JavaScript -->
+    <div id="header-container"></div>
+    
+    <!-- Your page content -->
+    <section>
+        <div class="container">
+            <h1>My Subpage Content</h1>
+            <p>Content goes here...</p>
+        </div>
+    </section>
+    
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Load Header -->
+    <script>
+        // Load Header
+        fetch('header/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                
+                // Load CSS
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'header/header.css';
+                document.head.appendChild(link);
+                
+                // Load and execute JS
+                const script = document.createElement('script');
+                script.src = 'header/header.js';
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error loading header:', error));
+        
+        // Initialize AOS after header is loaded
+        setTimeout(() => {
+            AOS.init({
+                duration: 1000,
+                once: false,
+                offset: 100
+            });
+        }, 500);
+    </script>
+    
+    <!-- Your page JavaScript -->
+    <script>
+        // Your page JavaScript here
+    </script>
+</body>
+</html>

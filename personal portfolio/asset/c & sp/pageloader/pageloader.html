@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pageLoader</title>
+  <link rel="stylesheet" href="pageloader.CSS">
+</head>
+
+<body>
+  
+  <!-- pageloader.html -->
+<div id="pageLoader" class="page-loader">
+  <div class="loader-background"></div>
+  <div class="loader-content">
+    <div class="image-container">
+      <img id="loaderImage" src="/personal portfolio/asset/img/logo/20250527_093908.png" alt="Michael Edet" class="loader-image"/>
+    </div>
+    <div class="loader-text">
+      <h1 class="loader-title">MICHAEL EDET</h1>
+      <p class="loader-subtitle">Digital Creator & Developer</p>
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+        <div class="progress-text">0%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image Upload Interface (for demonstration - remove in production) -->
+<div class="image-upload-panel">
+  <div class="upload-container">
+    <h3>Page Loader Image Setup</h3>
+    <p>Upload your image for the page loader animation:</p>
+    
+    <div class="upload-area" id="dropArea">
+      <i class="fas fa-cloud-upload-alt upload-icon"></i>
+      <p>Drag & drop your image here or click to browse</p>
+      <input type="file" id="imageUpload" accept="image/*" hidden>
+      <button class="btn btn-upload" id="browseBtn">Browse Files</button>
+      <p class="upload-note">Recommended: Square or portrait image (min 500x500px)</p>
+    </div>
+    
+    <div class="image-preview-container" id="previewContainer">
+      <div class="preview-header">
+        <h4>Current Image Preview</h4>
+        <button class="btn btn-small" id="removeImageBtn">Remove</button>
+      </div>
+      <div class="image-preview">
+        <img id="previewImage" src="/personal portfolio/asset/img/logo/20250527_093908.png" alt="Preview">
+      </div>
+      <p class="preview-note">This image will be used in the page loader animation</p>
+    </div>
+    
+    <div class="upload-actions">
+      <button class="btn btn-primary" id="saveImageBtn">Save & Apply</button>
+      <button class="btn btn-outline" id="useDefaultBtn">Use Default Image</button>
+    </div>
+    
+    <div class="animation-controls">
+      <h4>Animation Settings</h4>
+      <div class="control-group">
+        <label for="animationSpeed">Animation Speed:</label>
+        <select id="animationSpeed">
+          <option value="slow">Slow (6s)</option>
+          <option value="normal" selected>Normal (4s)</option>
+          <option value="fast">Fast (2s)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>
+          <input type="checkbox" id="enableSound" checked>
+          Enable Sound Effects
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="pag"></script>
+</body>
+
+</html>

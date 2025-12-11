@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Michael Edet - Digital Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="/personal portfolio/asset/c & sp/header/header.css">
+    <style>
+        /* Base Variables - Matching Main Page */
+        :root {
+            --yellow-primary: #FFD700;
+            --yellow-light: #FFF9C4;
+            --yellow-dark: #FFA000;
+            --black-primary: #0a0a0a;
+            --black-light: #121212;
+            --black-lighter: #1e1e1e;
+            --text-light: #F5F5F5;
+            --text-muted: #9E9E9E;
+            --gradient-primary: linear-gradient(135deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+            --gradient-secondary: linear-gradient(90deg, var(--yellow-primary) 0%, var(--yellow-dark) 100%);
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title h1 {
+            font-size: 3.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+        }
+        
+        .section-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--yellow-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateX(-5px);
+        }
+        
+        /* Hero Section */
+        .services-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 1)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero-content h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--lighter-black);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Services Overview */
+        .services-overview {
+            background-color: var(--black-light);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .overview-card {
+            background: var(--black-lighter);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--yellow-primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .overview-card.active {
+            border-color: var(--yellow-primary);
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .overview-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .overview-icon i {
+            font-size: 2.5rem;
+            color: var(--yellow-primary);
+        }
+        
+        .overview-card h3 {
+            font-size: 1.5rem;
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+        }
+        
+        .overview-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Service Details */
+        .service-detail-section {
+            padding: 60px 0;
+        }
+        
+        .service-detail {
+            background: var(--black-lighter);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 60px;
+            display: none;
+        }
+        
+        .service-detail.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .service-header {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 160, 0, 0.1) 100%);
+            padding: 40px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .service-header-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .service-header-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .service-header-icon i {
+            font-size: 3rem;
+            color: var(--black-primary);
+        }
+        
+        .service-header-text h2 {
+            font-size: 2.8rem;
+            color: var(--yellow-primary);
+            margin-bottom: 10px;
+        }
+        
+        .service-header-text p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+        
+        .service-body {
+            padding: 40px;
+        }
+        
+        .service-description {
+            margin-bottom: 40px;
+        }
+        
+        .service-description h3 {
+            color: var(--yellow-primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .service-description p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* Service Features */
+        .service-features {
+            margin-bottom: 40px;
+        }
+        
+        .service-features h3 {
+            color: var(--yellow-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--yellow-primary);
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon i {
+            font-size: 1.8rem;
+            color: var(--yellow-primary);
+        }
+        
+        .feature-card h4 {
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Service Process */
+        .service-process {
+            margin-bottom: 40px;
+        }
+        
+        .service-process h3 {
+            color: var(--yellow-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--black-primary);
+            font-size: 1.2rem;
+        }
+        
+        .process-step h4 {
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Deliverables */
+        .service-deliverables {
+            margin-bottom: 40px;
+        }
+        
+        .service-deliverables h3 {
+            color: var(--yellow-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .deliverables-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .deliverable-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
+        
+        .deliverable-item i {
+            color: var(--yellow-primary);
+            font-size: 1.2rem;
+        }
+        
+        .deliverable-item span {
+            color: var(--text-muted);
+        }
+        
+        /* Pricing */
+        .service-pricing {
+            margin-bottom: 40px;
+        }
+        
+        .service-pricing h3 {
+            color: var(--yellow-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            border-color: var(--yellow-primary);
+            transform: translateY(-10px);
+        }
+        
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 160, 0, 0.05) 100%);
+            border-color: var(--yellow-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        
+        .pricing-header {
+            margin-bottom: 25px;
+        }
+        
+        .pricing-header h4 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 5px;
+        }
+        
+        .pricing-period {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .pricing-features {
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .pricing-features ul {
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-features li:last-child {
+            border: none;
+        }
+        
+        .pricing-features li i {
+            color: var(--yellow-primary);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--black-primary);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--yellow-primary);
+            border: 2px solid var(--yellow-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--yellow-primary);
+            color: var(--black-primary);
+            transform: translateY(-3px);
+        }
+        
+        /* CTA Section */
+        .services-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80') no-repeat center center/cover;
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+        
+        .services-cta h2 {
+            font-size: 2.8rem;
+            color: var(--yellow-primary);
+            margin-bottom: 20px;
+        }
+        
+        .services-cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h1 {
+                font-size: 2.8rem;
+            }
+            
+            .service-header-text h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .overview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .pricing-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-overview {
+                padding: 30px;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-header, .service-body {
+                padding: 30px;
+            }
+            
+            .back-btn {
+                top: 90px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .services-cta {
+                padding: 50px 20px;
+            }
+            
+            .services-cta h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    
+     <!-- Header -->
+ <header id="header">
+     <div class="container header-container">
+         <a href="/personal portfolio/index.html" class="logo">
+             <div class="logo-icon">
+                 <i class="fas fa-user"></i>
+             </div>
+             <div class="logo-text">
+                 <span class="main">MICHAEL EDET</span>
+                 <span class="sub">Digital Portfolio</span>
+             </div>
+         </a>
+         
+         <div class="menu-toggle" id="menuToggle">
+             <i class="fas fa-bars"></i>
+         </div>
+         
+         <nav id="navMenu">
+             <ul>
+                 <li><a href="/personal portfolio/index.html">Home</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/about.html">About</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/skill.html">Skills</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/service.html">Services</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/portfolio.html">Portfolio</a></li>
+                 <li><a href="/personal portfolio/asset/c & sp/html/contact.html">Contact</a></li>
+             </ul>
+         </nav>
+     </div>
+ </header>
+    
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn" data-aos="fade-right" data-aos-delay="300">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+    
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Professional <span>Digital Services</span></h1>
+                <p>Comprehensive digital solutions combining 5+ years of creative design expertise with 4+ years of technical development experience. End-to-end services from concept to deployment.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Overview -->
+    <section>
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h1>My Services</h1>
+                <p>Select a service category to explore detailed information, processes, deliverables, and pricing options</p>
+            </div>
+            
+            <div class="services-overview" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="overview-grid" id="serviceTabs">
+                    <div class="overview-card active" data-service="design">
+                        <div class="overview-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Graphic & Video Design</h3>
+                        <p>Visual storytelling through compelling designs and engaging video content</p>
+                    </div>
+                    
+                    <div class="overview-card" data-service="development">
+                        <div class="overview-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Responsive, secure, and scalable web applications and platforms</p>
+                    </div>
+                    
+                    <div class="overview-card" data-service="cybersecurity">
+                        <div class="overview-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Cybersecurity Solutions</h3>
+                        <p>Protecting digital assets through security protocols and best practices</p>
+                    </div>
+                    
+                    <div class="overview-card" data-service="platforms">
+                        <div class="overview-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Platform Development</h3>
+                        <p>Building comprehensive digital ecosystems for communities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Details -->
+    <section class="service-detail-section">
+        <div class="container">
+            
+            <!-- Graphic & Video Design Service -->
+            <div class="service-detail active" id="design-service">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-header-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="service-header-text">
+                            <h2>Graphic & Video Design</h2>
+                            <p>5+ years of professional experience creating visual identities and engaging multimedia content</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-body">
+                    <div class="service-description">
+                        <h3>Comprehensive Visual Design Solutions</h3>
+                        <p>I provide end-to-end graphic and video design services that transform your ideas into compelling visual narratives. With 5+ years of experience across various industries, I combine artistic creativity with strategic thinking to deliver designs that not only look exceptional but also achieve your business objectives.</p>
+                        <p>My approach focuses on understanding your brand identity, target audience, and communication goals to create visuals that resonate, engage, and convert. From initial concept to final delivery, I ensure every design element aligns with your vision and enhances your digital presence.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Core Services</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h4>Brand Identity Design</h4>
+                                <p>Complete visual identity systems including logos, color palettes, typography, brand guidelines, and style guides that establish a cohesive brand presence.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <h4>Marketing Materials</h4>
+                                <p>Design of brochures, flyers, business cards, banners, social media graphics, and other promotional materials that communicate your message effectively.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <h4>Video Production</h4>
+                                <p>End-to-end video services including scripting, filming, editing, motion graphics, color grading, and post-production for various platforms and purposes.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-icons"></i>
+                                </div>
+                                <h4>Digital Illustrations</h4>
+                                <p>Custom illustrations, character designs, infographics, and digital artwork tailored to your specific needs for websites, apps, and marketing campaigns.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-process">
+                        <h3>My Design Process</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h4>Discovery & Research</h4>
+                                <p>Understanding your business, audience, goals, and competitors through detailed consultation and market research.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h4>Concept Development</h4>
+                                <p>Creating initial concepts, mood boards, and sketches to establish visual direction and design approach.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h4>Design Execution</h4>
+                                <p>Transforming concepts into polished designs with attention to detail, consistency, and visual impact.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h4>Review & Refinement</h4>
+                                <p>Collaborative feedback sessions with revisions based on your input to perfect the final design.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <h4>Delivery & Support</h4>
+                                <p>Providing final files in required formats along with usage guidelines and ongoing support as needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-deliverables">
+                        <h3>Typical Deliverables</h3>
+                        <div class="deliverables-list">
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Logo design in multiple formats</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Complete brand style guide</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Marketing collateral designs</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Social media graphics package</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Edited video files in multiple resolutions</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Source files (AI, PSD, etc.)</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Usage guidelines and recommendations</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check"></i>
+                                <span>Responsive web graphics</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <h3>Pricing Options</h3>
+                        <div class="pricing-options">
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>Basic Package</h4>
+                                    <div class="price">$500+</div>
+                                    <div class="pricing-period">One-time project</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Logo design</li>
+                                        <li><i class="fas fa-check"></i> Business card design</li>
+                                        <li><i class="fas fa-check"></i> Social media banner</li>
+                                        <li><i class="fas fa-check"></i> Up to 3 revisions</li>
+                                        <li><i class="fas fa-check"></i> 1-week delivery</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card featured">
+                                <div class="pricing-header">
+                                    <h4>Professional Package</h4>
+                                    <div class="price">$1,500+</div>
+                                    <div class="pricing-period">Complete brand package</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Complete brand identity</li>
+                                        <li><i class="fas fa-check"></i> Marketing materials (5 items)</li>
+                                        <li><i class="fas fa-check"></i> Social media kit</li>
+                                        <li><i class="fas fa-check"></i> 2-minute promotional video</li>
+                                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                                        <li><i class="fas fa-check"></i> 2-week delivery</li>
+                                        <li><i class="fas fa-check"></i> Source files included</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-primary">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>Enterprise Package</h4>
+                                    <div class="price">Custom</div>
+                                    <div class="pricing-period">Monthly retainer</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Ongoing design support</li>
+                                        <li><i class="fas fa-check"></i> Monthly content creation</li>
+                                        <li><i class="fas fa-check"></i> Video series production</li>
+                                        <li><i class="fas fa-check"></i> Priority support</li>
+                                        <li><i class="fas fa-check"></i> Strategic consultation</li>
+                                        <li><i class="fas fa-check"></i> Custom deliverables</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Contact for Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web Development Service -->
+            <div class="service-detail" id="development-service">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-header-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="service-header-text">
+                            <h2>Web Development</h2>
+                            <p>4 years of full-stack development experience building responsive, secure, and scalable web solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-body">
+                    <div class="service-description">
+                        <h3>Comprehensive Web Development Solutions</h3>
+                        <p>I provide end-to-end web development services, from initial concept and design to deployment and maintenance. With expertise across the full stack, I build websites and applications that are not only visually appealing but also performant, secure, and optimized for user experience.</p>
+                        <p>My development approach emphasizes clean code architecture, scalability, and maintainability. Whether you need a simple business website, a complex web application, or an e-commerce platform, I can deliver solutions that meet your technical requirements and business objectives.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Core Services</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h4>Responsive Website Development</h4>
+                                <p>Building modern, responsive websites that work seamlessly across all devices and screen sizes with fast loading times and optimal user experience.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h4>E-commerce Solutions</h4>
+                                <p>Developing secure online stores with shopping cart functionality, payment gateway integration, inventory management, and order processing systems.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4>Web Application Development</h4>
+                                <p>Creating dynamic, interactive web applications with custom functionality, user authentication, data management, and API integrations.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-wrench"></i>
+                                </div>
+                                <h4>Website Maintenance & Support</h4>
+                                <p>Ongoing maintenance, updates, security patches, performance optimization, and technical support for existing websites and applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-process">
+                        <h3>Development Process</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h4>Requirements Analysis</h4>
+                                <p>Detailed discussion of project requirements, functionality, technical specifications, and target audience.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h4>Planning & Architecture</h4>
+                                <p>Creating project roadmap, selecting technology stack, database design, and system architecture planning.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h4>Development & Implementation</h4>
+                                <p>Writing clean, efficient code with regular progress updates and functionality demonstrations.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h4>Testing & Quality Assurance</h4>
+                                <p>Rigorous testing for functionality, performance, security, responsiveness, and cross-browser compatibility.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <h4>Deployment & Launch</h4>
+                                <p>Deployment to production environment, DNS configuration, SSL installation, and final performance optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-deliverables">
+                        <h3>Technology Stack</h3>
+                        <div class="deliverables-list">
+                            <div class="deliverable-item">
+                                <i class="fas fa-code"></i>
+                                <span>Frontend: HTML5, CSS3, JavaScript, React.js</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-server"></i>
+                                <span>Backend: Node.js, Express.js, PHP, Python</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-database"></i>
+                                <span>Databases: MySQL, MongoDB, PostgreSQL</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Responsive Frameworks: Bootstrap, Tailwind CSS</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>E-commerce: WooCommerce, Shopify, Custom</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>Hosting & Deployment: AWS, Vercel, cPanel</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Security: SSL, Data Encryption, Secure Auth</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-tools"></i>
+                                <span>Tools: Git, Docker, Webpack, REST APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <h3>Pricing Options</h3>
+                        <div class="pricing-options">
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>Basic Website</h4>
+                                    <div class="price">$1,200+</div>
+                                    <div class="pricing-period">One-time project</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> 5-7 page responsive website</li>
+                                        <li><i class="fas fa-check"></i> Custom design implementation</li>
+                                        <li><i class="fas fa-check"></i> Contact form integration</li>
+                                        <li><i class="fas fa-check"></i> Basic SEO optimization</li>
+                                        <li><i class="fas fa-check"></i> 1-month post-launch support</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card featured">
+                                <div class="pricing-header">
+                                    <h4>Web Application</h4>
+                                    <div class="price">$3,500+</div>
+                                    <div class="pricing-period">Custom development</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Custom web application</li>
+                                        <li><i class="fas fa-check"></i> User authentication system</li>
+                                        <li><i class="fas fa-check"></i> Database integration</li>
+                                        <li><i class="fas fa-check"></i> Admin dashboard</li>
+                                        <li><i class="fas fa-check"></i> API development</li>
+                                        <li><i class="fas fa-check"></i> 3-month post-launch support</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-primary">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>E-commerce Platform</h4>
+                                    <div class="price">$5,000+</div>
+                                    <div class="pricing-period">Complete online store</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Full e-commerce website</li>
+                                        <li><i class="fas fa-check"></i> Product management system</li>
+                                        <li><i class="fas fa-check"></i> Payment gateway integration</li>
+                                        <li><i class="fas fa-check"></i> Shopping cart & checkout</li>
+                                        <li><i class="fas fa-check"></i> Inventory management</li>
+                                        <li><i class="fas fa-check"></i> 6-month support included</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Select Package</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cybersecurity Service -->
+            <div class="service-detail" id="cybersecurity-service">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-header-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-header-text">
+                            <h2>Cybersecurity Solutions</h2>
+                            <p>Implementing security protocols and best practices to protect digital assets and applications</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-body">
+                    <div class="service-description">
+                        <h3>Comprehensive Security Solutions</h3>
+                        <p>I provide cybersecurity services focused on protecting web applications and digital assets from threats and vulnerabilities. With a proactive approach to security, I implement measures throughout the development lifecycle to ensure robust protection against common attack vectors.</p>
+                        <p>My security services are designed to complement development projects or enhance existing applications. By integrating security from the ground up, I help clients build trust with their users and protect sensitive data from unauthorized access.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Core Services</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h4>Security Audits & Assessments</h4>
+                                <p>Comprehensive security reviews of web applications to identify vulnerabilities, configuration issues, and potential attack vectors.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h4>Secure Code Review</h4>
+                                <p>Analysis of source code for security vulnerabilities, following OWASP guidelines and secure coding best practices.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <h4>Authentication & Authorization</h4>
+                                <p>Implementation of secure user authentication systems, role-based access control, and session management.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h4>Data Protection & Encryption</h4>
+                                <p>Securing sensitive data through encryption, secure storage practices, and compliance with data protection regulations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-process">
+                        <h3>Security Implementation Process</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h4>Threat Assessment</h4>
+                                <p>Identifying potential threats, attack surfaces, and security requirements specific to your application.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h4>Vulnerability Analysis</h4>
+                                <p>Using automated tools and manual testing to identify security weaknesses in the application.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h4>Remediation Planning</h4>
+                                <p>Developing a prioritized plan to address identified vulnerabilities and implement security controls.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h4>Security Implementation</h4>
+                                <p>Implementing security measures, secure coding practices, and protective mechanisms.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <h4>Testing & Validation</h4>
+                                <p>Verifying security implementations through penetration testing and validation procedures.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-deliverables">
+                        <h3>Security Focus Areas</h3>
+                        <div class="deliverables-list">
+                            <div class="deliverable-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>OWASP Top 10 Protection</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-database"></i>
+                                <span>SQL Injection Prevention</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-code"></i>
+                                <span>Cross-Site Scripting (XSS) Protection</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-user-secret"></i>
+                                <span>Cross-Site Request Forgery (CSRF) Protection</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Secure Authentication & Session Management</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-key"></i>
+                                <span>Data Encryption Implementation</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Security Policy Documentation</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Compliance Assistance (GDPR, etc.)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <h3>Pricing Options</h3>
+                        <div class="pricing-options">
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>Basic Security Audit</h4>
+                                    <div class="price">$800+</div>
+                                    <div class="pricing-period">One-time assessment</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Automated vulnerability scan</li>
+                                        <li><i class="fas fa-check"></i> Security configuration review</li>
+                                        <li><i class="fas fa-check"></i> Basic penetration testing</li>
+                                        <li><i class="fas fa-check"></i> Summary report with findings</li>
+                                        <li><i class="fas fa-check"></i> High-level recommendations</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card featured">
+                                <div class="pricing-header">
+                                    <h4>Comprehensive Security Package</h4>
+                                    <div class="price">$2,500+</div>
+                                    <div class="pricing-period">Full security implementation</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Complete security audit</li>
+                                        <li><i class="fas fa-check"></i> Manual penetration testing</li>
+                                        <li><i class="fas fa-check"></i> Secure code implementation</li>
+                                        <li><i class="fas fa-check"></i> Authentication system hardening</li>
+                                        <li><i class="fas fa-check"></i> Data encryption implementation</li>
+                                        <li><i class="fas fa-check"></i> Detailed remediation report</li>
+                                        <li><i class="fas fa-check"></i> 3-month security monitoring</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-primary">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>Ongoing Security Maintenance</h4>
+                                    <div class="price">$400/mo</div>
+                                    <div class="pricing-period">Monthly retainer</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Monthly security scans</li>
+                                        <li><i class="fas fa-check"></i> Regular vulnerability assessments</li>
+                                        <li><i class="fas fa-check"></i> Security patch management</li>
+                                        <li><i class="fas fa-check"></i> 24/7 security monitoring</li>
+                                        <li><i class="fas fa-check"></i> Incident response support</li>
+                                        <li><i class="fas fa-check"></i> Security consultation</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Select Package</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platform Development Service -->
+            <div class="service-detail" id="platforms-service">
+                <div class="service-header">
+                    <div class="service-header-content">
+                        <div class="service-header-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="service-header-text">
+                            <h2>Platform Development</h2>
+                            <p>Building comprehensive digital ecosystems that connect communities and solve unique challenges</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-body">
+                    <div class="service-description">
+                        <h3>Digital Platform Solutions</h3>
+                        <p>I specialize in developing digital platforms that serve specific communities and address unique market needs. With experience building platforms like Freelancers Colony, Planet Colony, Planet Play, and Viral Son, I understand the complexities of creating ecosystems that facilitate interaction, content sharing, and value exchange.</p>
+                        <p>My platform development approach combines user-centered design with scalable architecture to create solutions that can grow with your user base. Whether you need a community platform, content aggregation system, or specialized service marketplace, I can build the technical foundation for your digital ecosystem.</p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3>Platform Types</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Community Platforms</h4>
+                                <p>Building online communities with user profiles, discussion forums, content sharing, and social interaction features.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <h4>Content Aggregation Platforms</h4>
+                                <p>Developing systems that collect, organize, and present content from multiple sources with user customization options.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4>Educational Platforms</h4>
+                                <p>Creating learning management systems, course platforms, and educational communities with interactive features.</p>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <h4>Specialized Marketplaces</h4>
+                                <p>Building niche marketplaces for specific industries or services with listing, discovery, and transaction features.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-process">
+                        <h3>Platform Development Process</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h4>Ecosystem Analysis</h4>
+                                <p>Understanding the community dynamics, value exchange mechanisms, and platform economics of your concept.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h4>Feature Definition</h4>
+                                <p>Identifying core platform features, user roles, interaction models, and growth mechanisms.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h4>Architecture Design</h4>
+                                <p>Designing scalable system architecture, database structure, and API specifications for the platform.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h4>Development & Integration</h4>
+                                <p>Building platform components, implementing core features, and integrating third-party services as needed.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <h4>Launch & Growth Planning</h4>
+                                <p>Deploying the platform, implementing analytics, and planning for user acquisition and community growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-deliverables">
+                        <h3>Platform Components</h3>
+                        <div class="deliverables-list">
+                            <div class="deliverable-item">
+                                <i class="fas fa-user-circle"></i>
+                                <span>User profile & authentication system</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-comments"></i>
+                                <span>Community interaction features</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-upload"></i>
+                                <span>Content submission & management</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-search"></i>
+                                <span>Advanced search & discovery</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-bell"></i>
+                                <span>Notification & messaging system</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Analytics & reporting dashboard</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Admin management interface</span>
+                            </div>
+                            <div class="deliverable-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Responsive design for all devices</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-pricing">
+                        <h3>Pricing Options</h3>
+                        <div class="pricing-options">
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>MVP Platform</h4>
+                                    <div class="price">$5,000+</div>
+                                    <div class="pricing-period">Minimum viable product</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Core platform functionality</li>
+                                        <li><i class="fas fa-check"></i> Basic user authentication</li>
+                                        <li><i class="fas fa-check"></i> Essential content features</li>
+                                        <li><i class="fas fa-check"></i> Simple admin interface</li>
+                                        <li><i class="fas fa-check"></i> 2-month post-launch support</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card featured">
+                                <div class="pricing-header">
+                                    <h4>Standard Platform</h4>
+                                    <div class="price">$12,000+</div>
+                                    <div class="pricing-period">Full-featured platform</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Complete platform with all core features</li>
+                                        <li><i class="fas fa-check"></i> Advanced user management</li>
+                                        <li><i class="fas fa-check"></i> Content management system</li>
+                                        <li><i class="fas fa-check"></i> Community interaction features</li>
+                                        <li><i class="fas fa-check"></i> Analytics dashboard</li>
+                                        <li><i class="fas fa-check"></i> 6-month post-launch support</li>
+                                        <li><i class="fas fa-check"></i> Basic scalability features</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-primary">Select Package</a>
+                            </div>
+                            
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h4>Enterprise Platform</h4>
+                                    <div class="price">Custom</div>
+                                    <div class="pricing-period">Scalable enterprise solution</div>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> Custom platform architecture</li>
+                                        <li><i class="fas fa-check"></i> Advanced scalability features</li>
+                                        <li><i class="fas fa-check"></i> Third-party integrations</li>
+                                        <li><i class="fas fa-check"></i> Custom API development</li>
+                                        <li><i class="fas fa-check"></i> Advanced security features</li>
+                                        <li><i class="fas fa-check"></i> 12-month support & maintenance</li>
+                                    </ul>
+                                </div>
+                                <a href="#contact" class="btn btn-outline">Contact for Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="services-cta">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Ready to Start Your Project?</h2>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">With comprehensive services spanning creative design, technical development, security implementation, and platform building, I can provide end-to-end solutions for your digital needs.</p>
+            
+            <div class="cta-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <a href="index.html#contact" class="btn btn-primary btn-large">
+                    <i class="fas fa-paper-plane"></i> Start a Project
+                </a>
+                <a href="index.html#portfolio" class="btn btn-outline btn-large">
+                    <i class="fas fa-eye"></i> View My Work
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="/personal portfolio/asset/c & sp/header/header.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100
+        });
+        
+        // Service Tabs Functionality
+        const serviceTabs = document.querySelectorAll('.overview-card');
+        const serviceDetails = document.querySelectorAll('.service-detail');
+        
+        serviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                serviceTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Get the service type
+                const serviceType = tab.getAttribute('data-service');
+                
+                // Hide all service details
+                serviceDetails.forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                
+                // Show the selected service detail
+                const targetDetail = document.getElementById(`${serviceType}-service`);
+                if (targetDetail) {
+                    targetDetail.classList.add('active');
+                    
+                    // Scroll to the service detail section
+                    targetDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
