@@ -6,7 +6,7 @@
     // Configuration
     const CONFIG = {
         LOAD_TIME: 2000, // 2 seconds delay
-        DEFAULT_IMAGE: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+        DEFAULT_IMAGE: 'https://i.imgur.com/y0goG5T.jpeg',
         STORAGE_KEY: 'pageLoaderImage',
         ANIMATION_SPEED: 'normal', // slow, normal, fast
         ENABLE_SOUND: false
